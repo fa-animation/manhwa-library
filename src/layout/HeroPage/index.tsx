@@ -16,12 +16,17 @@ const HeroPage = () => {
             >
               Korean&#39;s Best Comics Library
             </chakra.h1>
-            <Text maxW="550px" fontSize={{ base: '2xl', sm: '3xl' }} textAlign="center" color="gray.200">
+            <Text
+              maxW="550px"
+              fontSize={{ base: '2xl', sm: '3xl' }}
+              textAlign="center"
+              color="gray.200"
+            >
               Find Your Dream book{' '}
-              <chakra.span 
+              <chakra.span
                 position={'relative'}
                 _after={{
-                  content: '\'\'',
+                  content: "''",
                   width: 'full',
                   height: '10%',
                   position: 'absolute',
@@ -31,12 +36,7 @@ const HeroPage = () => {
                   zIndex: 1000
                 }}
               >
-                <Typewriter
-                  words={['Here', 'Now', 'easy', '!']}
-                  loop
-                  cursor
-                  cursorStyle="|"
-                />
+                <Typewriter words={['Here', 'Now', 'easy', '!']} loop cursor cursorStyle="|" />
               </chakra.span>
             </Text>
             <Stack w={{ base: '100%', sm: 'auto' }} justify={'center'} mt={4}>
@@ -56,7 +56,7 @@ const HeroPage = () => {
               >
                 Browse Manhwa
               </Button>
-          </Stack>
+            </Stack>
           </Flex>
           <Flex align={'center'} justify={'center'}>
             <Image
@@ -64,9 +64,7 @@ const HeroPage = () => {
               objectFit={'cover'}
               maxW={'250px'}
               loading="lazy"
-              src={
-                '/svg/book.svg'
-              }
+              src={'/svg/book.svg'}
             />
           </Flex>
         </Stack>
