@@ -43,7 +43,7 @@ export default function NavHero() {
           <VisuallyHidden>Logo</VisuallyHidden>
           <NextLink href={'/'}>
             <chakra.h1 fontSize="xl" fontWeight="medium" ml="2">
-              Template
+              Manhwa Library
             </chakra.h1>
           </NextLink>
         </Flex>
