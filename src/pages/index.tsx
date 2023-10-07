@@ -1,14 +1,16 @@
 import { Heading, Flex, Box, useColorModeValue, Text } from '@chakra-ui/react'
 import Head from 'next/head'
 import NavHero from '@/layout/header'
+import HeroPage from '@/layout/HeroPage'
 
 export default function Home() {
   return (
     <>
       <Head>
-        <title>Template simples</title>
+        <title>Manhwa Library</title>
       </Head>
       <NavHero />
+      <HeroPage />
       <Flex minHeight={'100vh'} justify={'center'} align={'center'}>
         <Box
           bg={useColorModeValue('gray.300', 'gray.700')}
@@ -16,8 +18,8 @@ export default function Home() {
           rounded={'base'}
           textAlign={'center'}
         >
-          <Heading>Simples Template</Heading>
-          <Text>Template Nextjs with Chakra and Typescript</Text>
+          <Heading>Manhwa Library</Heading>
+          <Text>List manhwa alls</Text>
         </Box>
       </Flex>
     </>
