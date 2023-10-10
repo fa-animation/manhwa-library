@@ -16,7 +16,7 @@ type HeaderProps = {
 
 const Header = ({ children }: HeaderProps) => (
   <chakra.header
-    borderTop="5px solid #4299e1"
+    borderTop="6px solid rgb(130, 87, 229)"
     shadow="md"
     transition="all 0.5s ease-in-out"
     pos="fixed"
