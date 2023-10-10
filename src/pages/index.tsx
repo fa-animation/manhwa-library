@@ -1,7 +1,8 @@
 import { Heading, Flex, Box, useColorModeValue, Text } from '@chakra-ui/react'
 import Head from 'next/head'
 import NavHero from '@/layout/header'
-import HeroPage from '@/layout/HeroPage'
+import HeroPage from '@/containers/HeroPage'
+import CardGrid from '@/components/card-grid'
 
 export default function Home() {
   return (
@@ -11,6 +12,7 @@ export default function Home() {
       </Head>
       <NavHero />
       <HeroPage />
+      <CardGrid />
       <Flex minHeight={'100vh'} justify={'center'} align={'center'}>
         <Box
           bg={useColorModeValue('gray.300', 'gray.700')}
