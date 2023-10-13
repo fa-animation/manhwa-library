@@ -1,13 +1,14 @@
-import { Box, Container, SimpleGrid, chakra } from '@chakra-ui/react'
+import { Box, SimpleGrid, chakra } from '@chakra-ui/react'
+import Container from '@/layout/container'
+import { CardItem } from './card-item'
 
 const CardGrid = () => {
   return (
-    <Box as="section" bg="teal.600" mt={5} borderTopLeftRadius={'3xl'} borderTopRightRadius={'3xl'}>
-      <Container py="50px" maxW="1280px" pt="0">
-        <Box maxW="760px" mx="auto" textAlign="center" mb={5}>
+    <Box as="section" bg="teal.600" mt={5}>
+      <Container py={19}>
+        <Box maxW="760px" mx="auto" textAlign="center" mb={8} color="white">
           <chakra.h1
             fontWeight={'bold'}
-            color="white"
             textStyle="heading"
             fontSize={{ base: '2rem', md: '2.5rem' }}
           >
@@ -17,10 +18,8 @@ const CardGrid = () => {
             Library has books in your Favourite categories
           </chakra.h2>
         </Box>
-        <SimpleGrid columns={[1, 1, 3]} spacing={10}>
-          <Box bg="tomato" height="80px"></Box>
-          <Box bg="tomato" height="80px"></Box>
-          <Box bg="tomato" height="80px"></Box>
+        <SimpleGrid columns={{ base: 1, sm: 1, md: 3 }} spacing={10} mb={4}>
+          {Array(3).fill(<CardItem />)}
         </SimpleGrid>
       </Container>
     </Box>
