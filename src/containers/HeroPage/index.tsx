@@ -1,28 +1,19 @@
-import {
-  Box,
-  Button,
-  chakra,
-  Container,
-  Flex,
-  Image,
-  Stack,
-  Text,
-  useColorModeValue
-} from '@chakra-ui/react'
+import { Box, Button, chakra, Flex, Image, Stack, Text, useColorModeValue } from '@chakra-ui/react'
 import { BsBookHalf } from 'react-icons/bs'
 import { Typewriter } from 'react-simple-typewriter'
+import Container from '@/layout/container'
 
 const HeroPage = () => {
   return (
     <Box as="section">
-      <Container maxW="6xl" p={{ base: 8, sm: 14 }}>
+      <Container p={{ base: 8, sm: 14 }}>
         <Stack
           direction={{ base: 'column', lg: 'row' }}
-          pt={{ base: 28, md: 24 }}
+          pt={{ base: 27, md: 24 }}
           spacing={6}
           h="full"
         >
-          <Stack flex={1} direction={'column'} mb={3}>
+          <Stack flex={1} direction={'column'} mb={3} mt={4}>
             <Box maxW="32rem">
               <chakra.h1 fontSize={{ base: '4xl', sm: '5xl' }} fontWeight="bold" maxW="700px">
                 Korean&#39;s Best Comics Library
@@ -37,7 +28,7 @@ const HeroPage = () => {
                 <chakra.span
                   position={'relative'}
                   _after={{
-                    content: "''",
+                    content: '\'\'',
                     width: 'full',
                     height: '10%',
                     position: 'absolute',
