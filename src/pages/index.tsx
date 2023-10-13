@@ -3,6 +3,7 @@ import Head from 'next/head'
 import NavHero from '@/layout/header'
 import HeroPage from '@/containers/HeroPage'
 import CardGrid from '@/components/card-grid'
+import Explore from '@/components/explore'
 
 export default function Home() {
   return (
@@ -24,6 +25,7 @@ export default function Home() {
           <Text>List manhwa alls</Text>
         </Box>
       </Flex>
+      <Explore />
     </>
   )
 }
