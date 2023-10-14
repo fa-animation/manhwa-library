@@ -19,7 +19,9 @@ const CardGrid = () => {
           </chakra.h2>
         </Box>
         <SimpleGrid columns={{ base: 1, sm: 1, md: 3 }} spacing={10} mb={4}>
-          {Array(3).fill(<CardItem />)}
+          <CardItem key={1} />
+          <CardItem key={2} />
+          <CardItem key={3} />
         </SimpleGrid>
       </Container>
     </Box>
