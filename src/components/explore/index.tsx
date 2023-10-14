@@ -1,43 +1,27 @@
-import { chakra, Box, Button, Flex } from '@chakra-ui/react'
+import { chakra, Box, Flex } from '@chakra-ui/react'
 import Container from '@/layout/container'
+import { Button } from './button'
+import { Section } from './Section'
 
 const Explore = () => {
   return (
-    <Box bg={'purple.600'}>
+    <Section>
       <Container p={7}>
-        <Flex direction="column" align="center" justify="space-between">
+        <Flex align="center" direction="column" textAlign="center" mb="10">
           <Box maxW="32rem">
             <chakra.h1
-              mb={4}
+              mb={3}
+              color={'white'}
               fontWeight={'bold'}
-              textStyle="heading"
-              fontSize={{ base: '2rem', md: '2.5rem' }}
+              fontSize={{ base: '4xl', sm: '5xl' }}
             >
               Explore more Books
             </chakra.h1>
-            <Button
-              width="100%"
-              mt={{ base: '6', md: 0 }}
-              color="gray.800"
-              justifyContent="center"
-              display="inline-flex"
-              alignItems="center"
-              fontWeight="bold"
-              shadow="md"
-              bg="white"
-              px="24px"
-              h="56px"
-              rounded="lg"
-              fontSize="md"
-              boxShadow="rgba(0, 0, 0.3)"
-            >
-              Browse Manhwa
-            </Button>
+            <Button />
           </Box>
-          {/* <Image src="https://manhwa-library.netlify.app/asset/undraw_reading_time_re_phf7.svg" alt="teste" /> */}
         </Flex>
       </Container>
-    </Box>
+    </Section>
   )
 }
 
