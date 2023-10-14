@@ -1,15 +1,11 @@
-import { Box, Heading, Text, useColorModeValue } from '@chakra-ui/react'
+import { useColorModeValue } from '@chakra-ui/react'
 import { IoIosAppstore } from 'react-icons/io'
 import IconCard from '../Icon'
+import { Heading, Text } from './typography'
+import { BoxWrapper } from './box-wrapper'
 
 export const CardItem = () => (
-  <Box
-    pos="relative"
-    rounded="12px"
-    shadow="base"
-    p="40px"
-    bg={useColorModeValue('white', 'gray.600')}
-  >
+  <BoxWrapper bg={useColorModeValue('white', 'gray.600')}>
     <IconCard
       icon={IoIosAppstore}
       pos="absolute"
@@ -19,24 +15,10 @@ export const CardItem = () => (
       marginInline="auto"
       top="-1.5rem"
     />
-    <Heading
-      as="h3"
-      size="md"
-      fontWeight="semibold"
-      mt="1em"
-      mb="0.5em"
-      textAlign={'center'}
-      color={useColorModeValue('#18216d', 'white')}
-    >
-      Easy and Quick
-    </Heading>
-    <Text
-      fontSize="lg"
-      opacity={0.7}
-      color={useColorModeValue('#18216d', 'white')}
-      textAlign={'center'}
-    >
+    <Heading color={useColorModeValue('#18216d', 'white')}>Easy and Quick</Heading>
+
+    <Text color={useColorModeValue('#18216d', 'white')}>
       Get access to the book&#39;s You Purchase Online Instantly
     </Text>
-  </Box>
+  </BoxWrapper>
 )
