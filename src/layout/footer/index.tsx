@@ -3,8 +3,8 @@ import { ImGithub } from 'react-icons/im'
 
 const MyFooter = () => {
   return (
-    <Flex mb={5} pos={'relative'} flexDir={'column'} w={'full'} alignItems={'center'} shadow="md">
-      <Text fontSize={{ base: 'sm', md: 'md' }} fontWeight={'light'}>
+    <Flex mb={9} flexDir={'column'} w={'full'} alignItems={'center'} as={'footer'}>
+      <Text fontSize={{ base: 'sm', md: 'md' }} fontWeight={'light'} mt={9}>
         Manhwa Library 🌊
       </Text>
       <Text fontSize={{ base: 'sm', md: 'md' }} fontWeight={'light'}>
