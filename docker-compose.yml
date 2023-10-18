@@ -1,0 +1,18 @@
+version: '2.1'
+
+services:
+  # www:
+  #   build: ./www
+  #   image: manhwa-frontend
+  #   container_name: ${CONTAINER_NAME:-manhwa-frontend}
+  #   restart: always
+  #   ports:
+  #     - "3000:3000"
+
+  server:
+    build: ./server
+    image: manhwa-server
+    container_name: ${CONTAINER_NAME:-manhwa-backend}
+    restart: always
+    ports:
+      - "8000:8000"
