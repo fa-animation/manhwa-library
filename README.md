@@ -4,7 +4,8 @@
 Projeto com tema de manhwa, testando a integração do Nextjs e Python (fastapi).
 </p>
 
-
+> [!IMPORTANT]  
+> Em produção, o projeto vai utilizar a função do Nextjs de SSR, para consumir os dados. 
 
 ## **Contribuições**
 
@@ -32,26 +33,8 @@ Esse projeto foi feito utilizando as seguintes tecnologias:
 
 ### Autores
 
-<table align="center">
-  <tr>
-    <td align="center">
-      <a href="https://github.com/IgorBrenno/">
-        <img style="border-radius: 13px;" src="https://github.com/IgorBrenno.png" width="100px;" alt="Eu Ajudo"/>
-        <br />
-        <sub><b>Igor Brenno</b>
-        </sub>
-        </a>
-    </td>
-       <td align="center">
-      <a href="https://euajudo-app.vercel.app/">
-        <img style="border-radius: 13px;" src="https://avatars.githubusercontent.com/u/56506788?v=4" width="100px;" alt="Eu Ajudo"/>
-        <br />
-        <sub><b>Kayo Ronald</b>
-        </sub></a>
-    </td>
-  </tr>
-</table>
-
+- [@IgorBrenno](https://www.github.com/IgorBrenno)
+- [@kayoRonald](https://www.github.com/kayoRonald)
 
 ## **Licença**
 
