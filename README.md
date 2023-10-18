@@ -1,37 +1,32 @@
 <h1 align="center">Manhwa Library</h1>
 
 <p align="center">
-Projeto com tema de manhwa, testando a integração do Nextjs e Python (fastapi).
+A Manhwa Library é um projeto que busca disponibilizar uma biblioteca simples de manhwas online. O projeto está sendo desenvolvido utilizando as tecnologias Next.js, Python, FastAPI e SqlAlchemy.
 </p>
 
-> [!IMPORTANT]  
-> Em produção, o projeto vai utilizar a função do Nextjs de SSR, para consumir os dados. 
+## **Como contribuir**
 
-## **Contribuições**
+Para contribuir com o projeto, siga estas etapas:
 
-- Faça um `fork` desse repositório;
-  
-- Cria uma `branch` com a sua feature: `git checkout -b minha-feature`;
-  
-- Faça `commit` das suas alterações: `git commit -m 'feat: Minha nova feature'`;
+1. Faça um fork do repositório.
+2. Crie uma branch com a sua feature: `git checkout -b minha-feature`.
+3. Faça commits das suas alterações: `git commit -m 'feat: Minha nova feature'`.
+4. Envie um pull request para a branch master: `git push origin minha-feature`.
 
-
-## Estrutura de diretórios
+## **Estrutura de diretórios**
 
 O projeto está estruturado da seguinte maneira:
-- www (front-end)
-- server (back-end)
+
+* `www`: diretório do front-end
+* `server`: diretório do back-end
 
 ## **Stack utilizada**
 
-Esse projeto foi feito utilizando as seguintes tecnologias:
+**Front-end:** Next.js, TypeScript, Chakra-ui
 
-**Front-end:** Next, Typescript, Chakra-ui.
+**Back-end:** Python, FastAPI, SqlAlchemy
 
-**Back-end:** Python, Fastapi, Sqlalchemy.
-
-
-### Autores
+## **Autores**
 
 - [@IgorBrenno](https://www.github.com/IgorBrenno)
 - [@kayoRonald](https://www.github.com/kayoRonald)
