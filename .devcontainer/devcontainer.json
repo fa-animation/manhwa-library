@@ -1,14 +1,14 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
 // https://github.com/devcontainers/images/tree/main/src/javascript-node
 {
-  "name": "Template with GitHub Codespaces",
+  "name": "Manhwa-library",
   "image": "mcr.microsoft.com/devcontainers/universal:2",
   "waitFor": "onCreateCommand",
-  "updateContentCommand": "yarn",
-  "postCreateCommand": "",
-  "postAttachCommand": {
-    "server": "yarn dev"
-  },
+  // "updateContentCommand": "yarn",
+  // "postCreateCommand": "",
+  // "postAttachCommand": {
+  //   "server": "yarn dev"
+  // },
   "customizations": {
     "vscode": {
       "extensions": ["dbaeumer.vscode-eslint"],
@@ -20,12 +20,12 @@
   "features": {
     "ghcr.io/devcontainers/features/github-cli:1": {},
     "ghcr.io/devcontainers/features/azure-cli:1": {}
-  },
-  "portsAttributes": {
-    "3000": {
-      "label": "Application",
-      "onAutoForward": "openPreview"
-    }
-  },
-  "forwardPorts": [3000]
+  }
+  // "portsAttributes": {
+  //   "3000": {
+  //     "label": "Application",
+  //     "onAutoForward": "openPreview"
+  //   }
+  // },
+  // "forwardPorts": [3000]
 }
