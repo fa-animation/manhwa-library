@@ -6,27 +6,9 @@ A Manhwa Library é um projeto que busca disponibilizar uma biblioteca simples d
 
 ## **Stack utilizada**
 
-**Front-end:** Next.js, TypeScript, Chakra-ui
+**Front-end:** TypeScript, Next.js, Chakra-ui, eslint, prettier.
 
-<div>
-  <img alt="NextJS" src="https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white"/>
-    &nbsp;
-  <img  alt="typescript" src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white" />
-   &nbsp;
-   <img alt="Chakra-ui" src="https://img.shields.io/badge/chakra-greem?style=for-the-badge&logo=chakra-ui&logoColor=white"/>
-  &nbsp;
-</div>
-
-**Back-end:** Python, FastAPI, SqlAlchemy
-
-<div>
-  <img alt="Python" src="https://img.shields.io/badge/Python-blue?style=for-the-badge&logo=Python&logoColor=yellow"/>
-    &nbsp;
-  <img  alt="Fastapi" src="https://img.shields.io/badge/Fastapi-yellow?style=for-the-badge&logo=Fastapi&logoColor=white" />
-   &nbsp;
-   <img alt="SqlAlchemy" src="https://img.shields.io/badge/SqlAlchemy-greem?style=for-the-badge&logo=SqlAlchemy&logoColor=white"/>
-  &nbsp;
-</div>
+**Back-end:** Python, FastAPI, SqlAlchemy.
 
 ## **Estrutura de diretórios**
 
@@ -34,6 +16,45 @@ O projeto está estruturado da seguinte maneira:
 
 * `www`: diretório do front-end
 * `server`: diretório do back-end
+* `docker-compose.yml`: arquivo de configuração do docker-compose
+* `makefile`: arquivo de configuração do makefile
+* `dockerfile`: arquivo de configuração do dockerfile
+
+
+> [!IMPORTANT]  
+> Antes de qualquer coisa, configure os arquivos `.env` acessando o diretório `/server` e `/www`.
+
+## **Configuração e Subindo o projeto**
+
+1 - Caso queria, mexer no projeto, é necessário baixar os seguintes dependencias:
+
+Entre, nos diretórios `www` e `server`, e sigas as do README.
+
+2 - Se você quiser apenas subir o projeto, o seu unico requesito é o seguinte:
+
+Docker: Certifique-se de ter o [Docker](https://www.docker.com/get-started) caso ainda não o tenha. instalado na sua máquina.
+
+### Rodando projeto com docker-compose
+
+Para gerar o build do projeto, rode o seguinte comando:
+```bash
+make build
+```
+
+Para executar o projeto, rode o seguinte comando:
+```bash
+make up
+```
+
+Para parar o projeto, rode o seguinte comando:
+```bash
+make down
+```
+
+Para ver os logs do projeto, rode o seguinte comando:
+```bash
+make logs
+```
 
 ## **Autores**
 
