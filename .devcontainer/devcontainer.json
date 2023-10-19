@@ -4,14 +4,19 @@
   "name": "Manhwa-library",
   "image": "mcr.microsoft.com/devcontainers/universal:2",
   "waitFor": "onCreateCommand",
-  // "updateContentCommand": "yarn",
+  // "updateContentCommand": "docker-compose build",
   // "postCreateCommand": "",
   // "postAttachCommand": {
-  //   "server": "yarn dev"
+  //   "server": "make up"
   // },
   "customizations": {
     "vscode": {
-      "extensions": ["dbaeumer.vscode-eslint"],
+      "extensions": [
+        "dbaeumer.vscode-eslint",
+        "ms-azuretools.vscode-docker",
+        "ms-python.python",
+        "PKief.material-icon-theme"
+      ],
       "settings": {
         "editor.tabSize": 2
       }
