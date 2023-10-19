@@ -16,7 +16,14 @@ Para instalar os pacotes Python necessários, execute os seguintes comandos:
 python3 -m venv venv
 ```
 
-2 - Entrar no venv (ex: fish)
+2 - Entrar no venv 
+
+Ex: bash
+```bash
+source venv/bin/activate
+```
+
+Ex: fish
 ```bash
 . venv/bin/activate.fish
 ```
