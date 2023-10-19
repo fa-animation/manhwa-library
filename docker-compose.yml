@@ -1,18 +1,30 @@
-version: '2.1'
+version: '3.8'
 
 services:
-  # www:
-  #   build: ./www
-  #   image: manhwa-frontend
-  #   container_name: ${CONTAINER_NAME:-manhwa-frontend}
-  #   restart: always
-  #   ports:
-  #     - "3000:3000"
+  www:
+    build: ./www
+    # build: 
+    #   context: ./dockerfile
+    #   dockerfile: www.dockerfile
+    image: manhwa-frontend
+    container_name: ${CONTAINER_NAME:-manhwa-frontend}
+    restart: always
+    tty: true
+    depends_on:
+      - servre
+    ports:
+      - "3000:3000"
 
   server:
     build: ./server
+    # build: 
+    #   context: ./dockerfile
+    #   dockerfile: server.dockerfile
     image: manhwa-server
     container_name: ${CONTAINER_NAME:-manhwa-backend}
     restart: always
+    tty: true
+    volumes:
+      - ./server/.env:/app/.env
     ports:
       - "8000:8000"
