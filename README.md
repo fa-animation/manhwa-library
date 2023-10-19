@@ -20,38 +20,46 @@ O projeto está estruturado da seguinte maneira:
 * `makefile`: arquivo de configuração do makefile
 * `dockerfile`: arquivo de configuração do dockerfile
 
+<hr/>
+<br/>
 
 > [!IMPORTANT]  
 > Antes de qualquer coisa, configure os arquivos `.env` acessando o diretório `/server` e `/www`.
 
 ## **Configuração e Subindo o projeto**
 
-1 - Caso queria, mexer no projeto, é necessário baixar os seguintes dependencias:
+Para este projeto, vai ser necessário:
 
-Entre, nos diretórios `www` e `server`, e sigas as do README.
+<blockquote>
 
-2 - Se você quiser apenas subir o projeto, o seu unico requesito é o seguinte:
+- É necessário possuir o **[Node.js](https://nodejs.org/en/)** instalado no computador (recomendado a versão LTS).
 
-Docker: Certifique-se de ter o [Docker](https://www.docker.com/get-started) caso ainda não o tenha. instalado na sua máquina.
+- Também, é preciso ter um gerenciador de pacotes o npm e npx já vem por padrão ao instalar o node.j ou **[Yarn](https://www.npmjs.com/package/yarn)**.
+
+- Instale o **[Python](https://www.python.org/)** e o pip.
+
+- Certifique-se de ter o [Docker](https://www.docker.com/get-started) instalado na sua máquina.
+  
+</blockquote>
 
 ### Rodando projeto com docker-compose
 
-Para gerar o build do projeto, rode o seguinte comando:
+Para gerar o build do projeto, execute o seguinte comando:
 ```bash
 make build
 ```
 
-Para executar o projeto, rode o seguinte comando:
+Para executar o projeto, execute o seguinte comando (Por padrão, não vai mostrar os logs):
 ```bash
 make up
 ```
 
-Para parar o projeto, rode o seguinte comando:
+Para interromper e remover os volumes, execute o seguinte comando:
 ```bash
 make down
 ```
 
-Para ver os logs do projeto, rode o seguinte comando:
+Para ver os logs do projeto, execute o seguinte comando:
 ```bash
 make logs
 ```
