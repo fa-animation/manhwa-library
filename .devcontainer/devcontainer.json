@@ -12,11 +12,12 @@
   "customizations": {
     "vscode": {
       "extensions": [
-        "dbaeumer.vscode-eslint",
-        "ms-azuretools.vscode-docker",
-        "ms-python.python",
-        "PKief.material-icon-theme"
-      ],
+		"dbaeumer.vscode-eslint",
+		"ms-azuretools.vscode-docker",
+		"ms-python.python",
+		"PKief.material-icon-theme",
+		"usernamehw.errorlens"
+	],
       "settings": {
         "editor.tabSize": 2
       }
