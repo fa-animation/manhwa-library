@@ -1,8 +1,8 @@
-from uuid import UUID
-from pydantic import BaseModel
 from typing import Union, Optional
-from datetime import datetime
+from uuid import UUID
 from enum import Enum
+from pydantic import BaseModel
+from datetime import datetime
 
 # class Status(Enum):
 #   Ongoing = "Ongoing"
@@ -16,7 +16,7 @@ class ManhwaBase(BaseModel):
   slug: Optional[str] = None
   description: str
   status_progress: str
-  ratinting: float
+  ratting: float
   image: str
   view_count: Optional[float] = None
   year_published: str

@@ -16,7 +16,7 @@ class Manhwa(base_model_schema.ManhwaBase):
           "title": "Solo leveling",
           "description": "Solo Leveling, também traduzido alternativamente como Only I Level Up, é uma web novel sul-coreana escrita por Chugong.",
           "status_progress": "Ongoing",
-          "ratinting": 4.5,
+          "ratting": 4.5,
           "image": "https://m.media-amazon.com/images/I/71gnuYUWeTL._AC_UF1000,1000_QL80_.jpg",
           "view_count": 100,
           "year_published": "2022",
