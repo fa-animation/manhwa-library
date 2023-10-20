@@ -2,9 +2,9 @@
 from fastapi import FastAPI, status
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import RedirectResponse
-from .config.settings import settings
-from .core.router import produto_router
-from .core.database import connect
+from app.infra.core.config.settings import settings
+from .infra.router import manhwa_router
+from .infra.core.database import connect
 
 app = FastAPI(
   title= settings.api_title,
@@ -31,4 +31,4 @@ def redirect_docs() -> dict:
   """Redirect to /docs"""
   return RedirectResponse(url='/docs')
 
-app.include_router(produto_router.router, prefix="/manhwa", tags=["/manhwa"])
+app.include_router(manhwa_router.router, prefix="/manhwa", tags=["/manhwa"])

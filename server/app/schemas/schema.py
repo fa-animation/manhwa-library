@@ -1,6 +1,6 @@
 from .base import base_model_schema
 
-class Produto(base_model_schema.PrudutoBase):
+class Manhwa(base_model_schema.ManhwaBase):
   """
     - id: Optional[UUID] = None
     - nome: str
@@ -13,10 +13,15 @@ class Produto(base_model_schema.PrudutoBase):
     from_attributes = True
     json_schema_extra = {
         "example": {
-          "id": "96f12a19-6283-4504-822b-a77bbce601d5",
-          "nome": "Maçã",
-          "detalhes": "maçã de boa qualidade",
-          "preco": 2.40,
-          "disponivel": True
+          "title": "Solo leveling",
+          "slug": "solo-loveling",  
+          "description": "Solo Leveling, também traduzido alternativamente como Only I Level Up, é uma web novel sul-coreana escrita por Chugong.",
+          "status_progress": "Ongoing",
+          "ratinting": 4.5,
+          "image": "https://m.media-amazon.com/images/I/71gnuYUWeTL._AC_UF1000,1000_QL80_.jpg",
+          "view_count": 100,
+          "year_published": "2022",
+          "author": "Chugong",
+          "artist": "DUBU",
       }
     }

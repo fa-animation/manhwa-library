@@ -1,16 +1,16 @@
+from fastapi import HTTPException, status
 from uuid import UUID
 from typing import List
 from sqlalchemy.orm import Session
 from sqlalchemy import desc
-from fastapi import HTTPException, status
 from .repository import Repository
 from sqlalchemy.exc import IntegrityError
-from app.core.models import models
+from app.infra.models import models
 from app.schemas.schema import *
 
-class ProdutoRepositorio(Repository):
+class ManhwaRepositorio(Repository):
   
-  def getAll(self, db: Session, skip: int = 0, limit: int = 100) -> List[Produto]:
+  def getAll(self, db: Session, skip: int = 0, limit: int = 100) -> List[Manhwa]:
     """
     #### Recupera todos os registros do banco de dados.
 
@@ -20,11 +20,11 @@ class ProdutoRepositorio(Repository):
       - limit Optional[int] = 100: O número máximo de registros a serem recuperados.
 
     Retorna:
-      - List[Produto]: Uma lista de Produto representando os registros recuperados.
+      - List[Manhwa]: Uma lista de Manhwa representando os registros recuperados.
     """
-    getAllProduto = db.query(models.Produto).offset(skip).limit(limit)
-    return getAllProduto.all()
-  def getLast(self, db: Session) -> List[Produto]:
+    getAllManhwa = db.query(models.ManhwaModel).offset(skip).limit(limit)
+    return getAllManhwa.all()
+  def getLast(self, db: Session) -> List[Manhwa]:
     """
     #### Recupera todos os registros do banco de dados.
 
@@ -32,44 +32,44 @@ class ProdutoRepositorio(Repository):
       - db (Session): A sessão do banco de dados.
 
     Retorna:
-      - List[Produto]: Uma lista de Produto representando os últimos registros recuperados.
+      - List[Manhwa]: Uma lista de Manhwa representando os últimos registros recuperados.
     """    
-    getLastedProduto = db.query(models.Produto).order_by(desc(models.Produto.created_at))
-    return getLastedProduto.all()
+    getLasteManhwa = db.query(models.ManhwaModel).order_by(desc(models.ManhwaModel.created_at))
+    return getLasteManhwa.all()
   
-  def getById(self, id: UUID, db:Session) -> Produto:
+  def getById(self, id: UUID, db:Session) -> Manhwa:
     """
-    #### Recupera um objeto `Produto` do banco de dados com base no `id` fornecido.
+    #### Recupera um objeto `Manhwa` do banco de dados com base no `id` fornecido.
 
     Argumentos:
       - id (UUID): O identificador único do objeto `Produto`.
       - db (Session): O objeto de sessão do banco de dados.
 
     Retorna:
-      - Produto: O objeto `Produto` com o `id` correspondente.
+      - Manhwa: O objeto `manhwa` com o `id` correspondente.
     """
-    return db.query(models.Produto).filter(models.Produto.id == id).first()
+    return db.query(models.ManhwaModel).filter(models.ManhwaModel.id == id).first()
   
-  def save(self, produto: Produto, db: Session) -> Produto:
+  def save(self, manhwa: Manhwa, db: Session) -> Manhwa:
     """
-    #### Salva um produto no banco de dados.
+    #### Salva um manhwa no banco de dados.
 
     Argumentos:
-      - produto (Produto): Os dados do produto como um dicionário.
+      - Manhwa (Manhwa): Os dados do Manhwa como um dicionário.
       - db (Session): O objeto de sessão do banco de dados.
 
     Retorna:
-      - Produto: O objeto produto salvo.
+      - Manhwa: O objeto Manhwa salvo.
 
     Raise:
       - HTTPException: Se houver um erro de integridade durante a operação de salvamento.
     """
-    produto_db = models.Produto(**produto.model_dump())
+    manhwa_db = models.ManhwaModel(**manhwa.model_dump())
     try:
-      db.add(produto_db)
+      db.add(manhwa_db)
       db.commit()
-      db.refresh(produto_db)
-      return produto_db
+      db.refresh(manhwa_db)
+      return manhwa_db
     except IntegrityError as err:
       db.rollback()
       raise HTTPException(
@@ -77,24 +77,25 @@ class ProdutoRepositorio(Repository):
         detail=f"{str(err)}" 
       )
 
-  def update(self, item_content: Produto, produto: Produto, db: Session) -> Produto:
+  def update(self, item_content: Manhwa, manhwa: Manhwa, db: Session) -> Manhwa:
     """
-    #### Atualize o conteúdo do item com as informações do produto determinado.
+    #### Atualize o conteúdo do item com as informações do manhwa determinado.
 
     Argumentos:
-      - item_content (Produto): O conteúdo do item a ser atualizado.
-      - produto (Produto): O objeto produto contendo as informações atualizadas.
+      - item_content (Manhwa): O conteúdo do item a ser atualizado.
+      - Manhwa (Manhwa): O objeto Manhwa contendo as informações atualizadas.
       - db (Session): O objeto de sessão para operações de banco de dados.
 
     Retorna:
       - item_content: o conteúdo atualizado do item.
     """
+    #Exmplo:
     # item_content.nome = produto.nome
     # item_content.detalhes = produto.detalhes
     # item_content.preco = produto.preco
     # item_content.disponivel = produto.disponivel
-    update_query = db.query(models.Produto).filter(models.Produto.id == item_content.id)
-    update_query.update(produto.model_dump(exclude_unset=True))
+    update_query = db.query(models.ManhwaModel).filter(models.ManhwaModel.id == item_content.id)
+    update_query.update(manhwa.model_dump(exclude_unset=True))
     # model_dump(): returns a dictionary of the model's fields and values. See Serialization.
     db.commit()
     return item_content
