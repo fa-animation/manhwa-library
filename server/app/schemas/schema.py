@@ -14,7 +14,6 @@ class Manhwa(base_model_schema.ManhwaBase):
     json_schema_extra = {
         "example": {
           "title": "Solo leveling",
-          "slug": "solo-loveling",  
           "description": "Solo Leveling, também traduzido alternativamente como Only I Level Up, é uma web novel sul-coreana escrita por Chugong.",
           "status_progress": "Ongoing",
           "ratinting": 4.5,
