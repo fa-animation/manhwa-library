@@ -2,7 +2,7 @@ from fastapi import HTTPException, status
 from uuid import UUID
 from typing import List
 from sqlalchemy.orm import Session
-from sqlalchemy import desc
+from sqlalchemy import desc, or_
 from .repository import Repository
 from sqlalchemy.exc import IntegrityError
 from app.infra.models import models
@@ -36,19 +36,18 @@ class ManhwaRepositorio(Repository):
     """    
     getLasteManhwa = db.query(models.ManhwaModel).order_by(desc(models.ManhwaModel.created_at))
     return getLasteManhwa.all()
-  
-  def getById(self, id: UUID, db:Session) -> Manhwa:
+
+  def getById(self, slug: str, db: Session) -> Manhwa:
     """
     #### Recupera um objeto `Manhwa` do banco de dados com base no `id` fornecido.
 
     Argumentos:
-      - id (UUID): O identificador único do objeto `Produto`.
       - db (Session): O objeto de sessão do banco de dados.
 
     Retorna:
       - Manhwa: O objeto `manhwa` com o `id` correspondente.
     """
-    return db.query(models.ManhwaModel).filter(models.ManhwaModel.id == id).first()
+    return db.query(models.ManhwaModel).where(models.ManhwaModel.slug == slug).first()
   
   def save(self, manhwa: Manhwa, db: Session) -> Manhwa:
     """
@@ -64,6 +63,7 @@ class ManhwaRepositorio(Repository):
     Raise:
       - HTTPException: Se houver um erro de integridade durante a operação de salvamento.
     """
+    print(manhwa)
     manhwa_db = models.ManhwaModel(**manhwa.model_dump())
     try:
       db.add(manhwa_db)
