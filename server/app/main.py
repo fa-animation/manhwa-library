@@ -1,7 +1,7 @@
 """main file where api is started"""
 from fastapi import FastAPI, status
-from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import RedirectResponse
+from fastapi.middleware.cors import CORSMiddleware
 from app.infra.core.config.settings import settings
 from .infra.router import manhwa_router
 from .infra.core.database import connect
