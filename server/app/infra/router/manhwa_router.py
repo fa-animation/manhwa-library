@@ -1,51 +1,72 @@
+from fastapi import status, APIRouter, Response, HTTPException, Depends
+
+from slugify import slugify
+from sqlalchemy.orm import Session
 from typing import List
 from uuid import UUID
-from fastapi import status, APIRouter, Response, HTTPException, Depends
-from sqlalchemy.orm import Session
-from slugify import slugify
+import random
 #importações locais
 from app.infra.core.database import connect
 from app.schemas.schema import Manhwa
-from app.infra.repository import manhwa_repository
+from app.schemas.base.base_model_schema import ShowsSearch, ManhwaNoList
+from app.infra.repository import manhwa_repository, recommed_manhwa
 
 manhwaRepo = manhwa_repository.ManhwaRepositorio()
+manhwaRecommend = recommed_manhwa.RecommedRepositorio()
 
 router = APIRouter()
 
 @router.get("/", 
   status_code=status.HTTP_200_OK, 
-  response_model=List[Manhwa], 
+  response_model=ShowsSearch, 
   summary="Obter todos os manhwa"
 )
-def getAllManhwa(db: Session = Depends(connect.get_db)):
+def get_show_all_manhwa(db: Session = Depends(connect.get_db)):
   """
   Obter todos os manhwa do banco de dados.
 
   Retorna:
-    - List[Manhwa]: Uma lista de todos os manhwa.
+    - Data[Manhwa]: Uma lista de todos os manhwa.
   """
-  return manhwaRepo.getAll(db)
+  show = manhwaRepo.getAll(db)
+  response = {'data': show, 'length': len(show)}
+  return response
+
+@router.get("/recommend", 
+  status_code=status.HTTP_200_OK, 
+  response_model=ManhwaNoList, 
+  summary="Obter as recomendações de manhwa"
+)
+def get_show_recommend_manhwa(db: Session = Depends(connect.get_db)):
+  """
+  Obter as recomendações de manhwa do banco de dados.
+  """
+  show = manhwaRecommend.getAll(db)
+  response = {"data": show}
+  return response
 
 @router.get("/last", 
   status_code=status.HTTP_200_OK, 
-  response_model=List[Manhwa], 
+  response_model=ShowsSearch, 
   summary="Obter os manhwa mais recentes"
 )
-def getLastManhwa(db: Session = Depends(connect.get_db)):
+def get_show_last_manhwa(db: Session = Depends(connect.get_db)):
   """
   Obter o ultimo manhwa do banco de dados.
 
   Retorna:
     - Manhwa: O objeto `Manhwa` com o `id` correspondente.
   """
-  return manhwaRepo.getLast(db)
+  show = manhwaRepo.getLast(db)
+  response = {"data": show, "length": len(show)}
+  return response
 
-@router.get("/{id}", 
+@router.get("/find/{slug}", 
   status_code=status.HTTP_200_OK, 
-  response_model=Manhwa, 
+  response_model=ManhwaNoList, 
   summary="Obter um manhwa por ID"
 )
-def getManhwaById(id: UUID, db: Session = Depends(connect.get_db)):
+def get_show_by_id(slug: str, db: Session = Depends(connect.get_db)):
   """
   Buscar um manhwa pelo id (GET)
 
@@ -58,17 +79,18 @@ def getManhwaById(id: UUID, db: Session = Depends(connect.get_db)):
   Returns:
     - manhwa: O manhwa recuperado.
   """
-  manhwaId = manhwaRepo.getById(id, db)
+  manhwaId = manhwaRepo.getById(slug, db)
   if not manhwaId:
-    raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"Obra não encontrado com esse id: {id}")
-  return manhwaId
+    raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"Obra não encontrado com esse id")
+  show = {"data": manhwaId}
+  return show
 
 @router.post("/", 
   status_code=status.HTTP_201_CREATED, 
-  # response_model=Manhwa, 
+  response_model=ManhwaNoList, 
   summary="Criar um novo manhwa"
 )
-def createManhwa(manhwa: Manhwa, db: Session = Depends(connect.get_db)):
+def create_manhwa(manhwa: Manhwa, db: Session = Depends(connect.get_db)):
   """
   Criar (POST) um novo manhwa.
 
@@ -77,39 +99,46 @@ def createManhwa(manhwa: Manhwa, db: Session = Depends(connect.get_db)):
   """
   if manhwa.slug == None:
     manhwa.slug = slugify(manhwa.title)
-  # manhwa = manhwaRepo.save(manhwa, db)
-  return manhwa
+  if manhwa.view_count == None:
+    manhwa.view_count = random.randint(90, 200) * 10
+  manhwa = manhwaRepo.save(manhwa, db)
+  show = {"data": manhwa}
+  return show
 
-@router.put("/{id}", 
+@router.put("/find/{id}", 
   status_code=status.HTTP_200_OK, 
-  response_model=Manhwa, 
+  response_model=ManhwaNoList,
   summary="Atualizar um produto"
 )
-def updateManhwa(id: UUID, manhwa: Manhwa, db: Session = Depends(connect.get_db)):
+def update_manhwa(id: UUID, manhwa: Manhwa, db: Session = Depends(connect.get_db)):
   """
   Atualiza (PUT) um manhwa com o ID especificado.
 
   Parameters:
     - id (UUID): O ID do manhwa a ser atualizado.
+  
+  Body:
     - manhwa (manhwa): O objeto de manhwa atualizado.
 
   Raises:
     - HTTPException: Se o manhwa com o ID especificado não for encontrado.
       
   Returns:
-    - manhwa: O manhwa atualizado.
+    - data (Manhwa): O manhwa atualizado.
   """
   item_content = manhwaRepo.getById(id, db)
   if not item_content:
     raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"Obra não encontrado com esse id: {id}")
+  manhwa.slug = slugify(manhwa.title)
   updated_user = manhwaRepo.update(item_content, manhwa, db)
-  return updated_user
+  show = {"data": updated_user}
+  return show
 
-@router.delete("/{id}", 
+@router.delete("/find/{id}", 
   status_code=status.HTTP_204_NO_CONTENT, 
   summary="Excluir um manhwa"
 )
-def deleteManhwa(id: UUID, db: Session = Depends(connect.get_db)):
+def delete_manhwa(id: UUID, db: Session = Depends(connect.get_db)):
   """
   Exclui (DELETE) um manhwa da lista de manhwas.
 
