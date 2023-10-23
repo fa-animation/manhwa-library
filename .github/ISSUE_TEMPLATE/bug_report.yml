@@ -1,0 +1,82 @@
+name: "Bug Report"
+description: "Arquivar um relatório de bug"
+labels: ["bug"]
+body:
+  - type: "markdown"
+    attributes:
+      value: |
+        Obrigado por criar uma issue 😄!
+
+        Somos todos voluntários aqui, então ajude-nos a ajudá-lo reservando um tempo para
+        preencha com precisão este modelo.❤️
+  - type: "checkboxes"
+    id: "where-it-occurred"
+    attributes:
+      label: "Snde ocorreu"
+      description: "Marque as alternativas em que o problema ocorreu."
+      options:
+        - label: "front-end"
+        - label: "back-end"
+    validations:
+      required: true
+  - type: "textarea"
+    id: "description"
+    attributes:
+      label: "Descrição"
+      description: "Uma breve descrição do problema."
+      placeholder: |
+        Quando eu ____, esperava que ____ acontecesse, mas ____ aconteceu.
+    validations:
+      required: true
+  - type: "input"
+    id: "reproduction"
+    attributes:
+      label: "Link do codigo"
+      description: |
+        A link do seu github.
+      placeholder: "https://github.com"
+    validations:
+      required: true
+     - type: "input"
+    id: "reproduction-on-vercel"
+    attributes:
+      label: "Link para reprodução"
+      description: |
+        A link do seu github + vercel para reproduzir o bug.
+      placeholder: "https://vercel.com"
+    validations:
+      required: false
+  - type: "textarea"
+    id: "steps"
+    attributes:
+      label: "Passos para reproduzir"
+      description: |
+        Explique como causar o problema na reprodução fornecida.
+      value: |
+        1. Vá para '...'
+        2. Clique em '...'
+        3. Role para baixo até '...'
+        4. Veja o erro
+  - type: "input"
+    id: "browser"
+    attributes:
+      label: "Browser"
+      description: "O(s) navegador(es) com o(s) qual(is) esse problema ocorreu."
+      placeholder: "Google Chrome 93"
+  - type: "checkboxes"
+    id: "operating-system"
+    attributes:
+      label: "Sistema operacional"
+      description: "Os sistemas operacionais com os quais esse problema ocorreu."
+      options:
+        - label: "macOS"
+        - label: "Windows"
+        - label: "Linux"
+        - label: "Android"
+  - type: "textarea"
+    id: "additional-information"
+    attributes:
+      label: "Informações adicionais"
+      description: |
+        Use esta seção para fornecer qualquer informação adicional que você possa ter
+        como capturas de tela, notas ou links para ideias.

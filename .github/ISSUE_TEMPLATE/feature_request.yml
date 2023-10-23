@@ -1,0 +1,54 @@
+name: "Feature Request"
+description: "Solicite um recurso ou aprimoramento"
+labels: ["needs triage"]
+body:
+  - type: "markdown"
+    attributes:
+      value: |
+        Obrigado por criar uma issue 😄!
+
+        Somos todos voluntários aqui, então ajude-nos a ajudá-lo reservando um tempo para
+        preencha com precisão este modelo.❤️
+  - type: "checkboxes"
+    id: "where-it-occurred"
+    attributes:
+      label: "Essa implementação vai ser onde?"
+      description: "Marque as alternativas em que essa implemntação vai ser adicionada."
+      options:
+        - label: "front-end"
+        - label: "back-end"
+        - label: "Criar um novo serviço"
+    validations:
+      required: true
+  - type: "textarea"
+    id: "description"
+    attributes:
+      label: "Descrição"
+      description: "Descreva sua solicitação em uma ou duas frases."
+    validations:
+      required: true
+  - type: "textarea"
+    id: "justification"
+    attributes:
+      label: Detalhe essa nova implementação"
+      description: |
+        Forneça motivos válidos pelos quais isso deve ser adicionado ao Chakra UI
+
+        Se esse recurso estiver relacionado a um problema que você percebeu, mencione-o como
+        bem.
+    validations:
+      required: true
+
+    id: "alternatives"
+    attributes:
+      label: "Alternatives"
+      description: |
+        What alternative solutions have you considered before making this
+        request?
+  - type: "textarea"
+    id: "additional-information"
+    attributes:
+      label: "Informações adicionais"
+      description: |
+        Use esta seção para fornecer qualquer informação adicional que você possa ter
+        como capturas de tela, notas ou links para ideias.
