@@ -1,6 +1,6 @@
 name: "Bug Report"
 description: "Arquivar um relatório de bug"
-
+labels: ["bug"]
 body:
   - type: "markdown"
     attributes:
@@ -37,7 +37,7 @@ body:
       placeholder: "https://github.com"
     validations:
       required: true
-     - type: "input"
+  - type: "input"
     id: "reproduction-on-vercel"
     attributes:
       label: "Link para reprodução"
