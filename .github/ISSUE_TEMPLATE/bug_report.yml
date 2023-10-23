@@ -1,6 +1,6 @@
 name: "Bug Report"
 description: "Arquivar um relatório de bug"
-labels: ["bug"]
+
 body:
   - type: "markdown"
     attributes:
