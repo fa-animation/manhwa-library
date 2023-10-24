@@ -9,6 +9,7 @@ class ManhwaModel(Base):
   id = Column(Uuid(as_uuid=True), primary_key=True, index=True, default=uuid.uuid4)
   title = Column(String)
   slug = Column(String, unique=True)
+  type_book = Column(String)
   description = Column(String)
   status_progress = Column(String)
   ratting = Column(Float)

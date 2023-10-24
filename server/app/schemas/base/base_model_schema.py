@@ -22,6 +22,7 @@ class ManhwaBase(BaseModel):
   year_published: str
   author: str
   artist: str
+  type_book: Optional[str]
   created_at: Optional[datetime] = None
 
 class ShowsSearch(BaseModel):
