@@ -56,5 +56,59 @@ CONTENT = [
       "artist": "Park Seung-Ah",
       "type_book": "manhwa"
       # "created_at": "2023-10-21T19:24:48"
+    },
+     {
+      "title": "The Beginning After The End",
+      "slug": None,
+      "description": "Rei Grey conquistou força, riquezas e prestígio sem iguais em um mundo governado pela habilidade marcial. Entretanto, a solidão acompanha de perto aqueles de grande poder. Por detrás da máscara de um glorioso e poderoso rei, reside a casca vazia de um homem destituído de propósito e vontade. Renascido em um novo mundo repleto de magia e monstros, o Rei Grey terá a chance de refazer sua vida.",
+      "status_progress": "Ongoing",
+      "ratting": 8.8,
+      "image": "https://d30womf5coomej.cloudfront.net/sa/3c/3f10a4c3-686f-4aa1-af71-22bfc021ccd0_z.jpg",
+      "view_count": 2000,
+      "year_published": "2018",
+      "author": "TurtleMe",
+      "artist": "Fuyuki23",
+      "type_book": "manhwa"
+    },
+     {
+      "title": "Swordmaster’s Youngest Son",
+      "slug": None,
+      "description": "Jin Runcandel era o filho mais novo do melhor clã de espadachins do continente, e a criança menos talentosa em toda a história do clã. Depois de ter sido expulso de forma patética, tendo seu fim como um inútil, obteve outra chance. “Como quer usar este poder?” “Eu quero usar este poder para mim mesmo.”",
+      "status_progress": "Ongoing",
+      "ratting": 7.25,
+      "image": "https://img.mangaschan.com/uploads/manga-images/s/swordmasters-youngest-son/thumbnail.jpg",
+      "view_count": 1000,
+      "year_published": "2022",
+      "author": "Azi",
+      "artist": "Lee Je-Woo",
+      "type_book": "manhwa"
+    },
+    {
+      "title": "Berserk",
+      "slug": None,
+      "description": "Guts, um ex-mercenário agora conhecido como o “Espadachim Negro”, está em busca de vingança. Depois de uma infância tumultuada, ele finalmente encontra alguém que respeita e acredita que pode confiar, apenas para ver tudo desmoronar quando essa pessoa tira tudo que é importante para Guts com o propósito de realizar seus próprios desejos.",
+      "status_progress": "Ongoing",
+      "ratting": 9,
+      "image": "https://i2.wp.com/mangaschan.net/wp-content/uploads/Berserk-Mangaschan.jpg",
+      "view_count": 1500,
+      "year_published": "1989",
+      "author": "MIURA Kentaro",
+      "artist": "MIURA Kentaro, Studio Gaga",
+      "type_book": "manga"
+    },
+    {
+      "title": "One Punch Man",
+      "slug": None,
+      "description": "Depois de treinar rigorosamente por três anos, o Saitama comum ganhou uma força imensa que lhe permite derrubar qualquer pessoa e qualquer coisa com apenas um soco. Ele decide colocar sua nova habilidade em bom uso, tornando-se um herói. No entanto, ele rapidamente fica entediado com a facilidade de derrotar monstros e quer que alguém lhe dê um desafio para trazer de volta a centelha de ser um herói.",
+      "status_progress": "Ongoing",
+      "ratting": 9.1,
+      "image": "https://mangaschan.net/wp-content/uploads/One-Punch-Man-Mangaschan.webp",
+      "view_count": 2500,
+      "year_published": "2012",
+      "author": "ONE",
+      "artist": "MURATA Yuusuke",
+      "type_book": "manga"
     }
   ]
+
+# Para adicioanar tem que comentar os mangas antigos

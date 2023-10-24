@@ -25,9 +25,9 @@ const PageNotFound: NextPage = () => {
               <Image
                 w="full"
                 rounded="lg"
-                maxW="400px"
+                maxW="600px"
                 loading="lazy"
-                src="/svg/undraw_warning_cyit.svg"
+                src="https://media.tenor.com/XaDOC9Gvu6UAAAAi/ui-shigure-shigure-ui.gif"
                 alt="Página não encontrada"
               />
             </Center>
