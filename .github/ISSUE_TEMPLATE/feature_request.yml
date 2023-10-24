@@ -38,13 +38,6 @@ body:
         bem.
     validations:
       required: true
-
-    id: "alternatives"
-    attributes:
-      label: "Alternatives"
-      description: |
-        What alternative solutions have you considered before making this
-        request?
   - type: "textarea"
     id: "additional-information"
     attributes:
