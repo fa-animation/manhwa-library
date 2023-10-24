@@ -11,6 +11,7 @@ from app.schemas.schema import Manhwa
 from app.schemas.base.base_model_schema import ShowsSearch, ManhwaNoList
 from app.infra.repository import manhwa_repository, recommed_manhwa
 
+
 manhwaRepo = manhwa_repository.ManhwaRepositorio()
 manhwaRecommend = recommed_manhwa.RecommedRepositorio()
 
@@ -110,7 +111,7 @@ def create_manhwa(manhwa: Manhwa, db: Session = Depends(connect.get_db)):
   response_model=ManhwaNoList,
   summary="Atualizar um produto"
 )
-def update_manhwa(id: UUID, manhwa: Manhwa, db: Session = Depends(connect.get_db)):
+def update_manhwa(id: str, manhwa: Manhwa, db: Session = Depends(connect.get_db)):
   """
   Atualiza (PUT) um manhwa com o ID especificado.
 
