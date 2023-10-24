@@ -5,6 +5,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from app.infra.core.config.settings import settings
 from .infra.router import manhwa_router
 from .infra.core.database import connect
+from app.utils import population_database
 
 app = FastAPI(
   title= settings.api_title,
@@ -25,6 +26,7 @@ app.add_middleware(
 )
 
 connect.create_database()
+# population_database.data_load()
 
 @app.get("/", status_code=status.HTTP_308_PERMANENT_REDIRECT)
 def redirect_docs() -> dict:
