@@ -1,3 +1,4 @@
-[MESSAGES CONTROL]
-disable=bad-indentation
-disable=import-error
+[MASTER]
+ignore=.venv/*
+disable=W0311
+disable=E0401
