@@ -16,7 +16,7 @@ const HeroPage = () => {
           <Stack flex={1} direction={'column'} mb={3} mt={4}>
             <Box maxW="32rem">
               <chakra.h1 fontSize={{ base: '4xl', sm: '5xl' }} fontWeight="bold" maxW="700px">
-                Korean&#39;s Best Comics Library
+                Japan Best Comics Library
               </chakra.h1>
               <Text
                 maxW="550px"
@@ -55,7 +55,7 @@ const HeroPage = () => {
                   fontSize="1.2rem"
                   color={'white'}
                 >
-                  Browse Now Manhwa
+                  Browse now manga
                 </Button>
               </Stack>
             </Box>

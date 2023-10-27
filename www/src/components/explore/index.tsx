@@ -15,7 +15,7 @@ const Explore = () => {
               fontWeight={'bold'}
               fontSize={{ base: '4xl', sm: '5xl' }}
             >
-              Explore more Books
+              Explore more manga
             </chakra.h1>
             <Button />
           </Box>
