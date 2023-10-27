@@ -1,28 +1,55 @@
-import { Heading, Flex, Box, useColorModeValue, Text } from '@chakra-ui/react'
+import type { GetStaticProps } from 'next'
 import Head from 'next/head'
 import HeroPage from '@/containers/HeroPage'
 import CardGrid from '@/components/card-grid'
 import Explore from '@/components/explore'
+import LastCard from '@/components/last-grids'
+import api from '@/api/'
 
-export default function Home() {
+export interface MangaProps {
+  id: string
+  title: string
+  slug: string
+  description: string
+  status_progress: string
+  ratting: number
+  image: string
+  view_count: number
+  year_published: string
+  author: string
+  artist: string
+  type_book: string
+}
+
+export interface MangaT {
+  data: MangaProps[]
+}
+
+export interface ArrayDataProps {
+  lastHomeManga: MangaT
+}
+
+export const getStaticProps: GetStaticProps = async (context: any) => {
+  const { data: lastHomeManga } = await api.get<MangaT>(
+    '/v1/manga/?order_by=created_at&limit=5'
+  )
+  return {
+    props: {
+      lastHomeManga
+    },
+    revalidate: 60000
+  }
+}
+
+export default function Home({ lastHomeManga }: ArrayDataProps) {
   return (
     <>
       <Head>
-        <title>Manhwa Library</title>
+        <title>Manga Library</title>
       </Head>
       <HeroPage />
       <CardGrid />
-      <Flex minHeight={'100vh'} justify={'center'} align={'center'}>
-        <Box
-          bg={useColorModeValue('gray.300', 'gray.700')}
-          p={10}
-          rounded={'base'}
-          textAlign={'center'}
-        >
-          <Heading>Manhwa Library</Heading>
-          <Text>List manhwa alls</Text>
-        </Box>
-      </Flex>
+      <LastCard lastHomeManga={lastHomeManga} />
       <Explore />
     </>
   )
