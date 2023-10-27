@@ -11,6 +11,6 @@ export const Button = () => (
     bg="gray.200"
     h="56px"
   >
-    Browse Manhwa
+    Browse manga
   </ChakraButton>
 )
