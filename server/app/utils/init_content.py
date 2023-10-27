@@ -1,5 +1,3 @@
-import uuid
-
 CONTENT = [
     {
       "title": "Solo leveling",
