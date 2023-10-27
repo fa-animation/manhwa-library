@@ -24,7 +24,6 @@ body:
     id: "description"
     attributes:
       label: "Descrição"
-      description: "Descreva sua solicitação"
+      description: "Descreva sua solicitação em uma ou duas frases."
     validations:
       required: true
-  - type: "textarea"
