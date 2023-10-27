@@ -24,24 +24,7 @@ body:
     id: "description"
     attributes:
       label: "Descrição"
-      description: "Descreva sua solicitação em uma ou duas frases."
+      description: "Descreva sua solicitação"
     validations:
       required: true
   - type: "textarea"
-    id: "justification"
-    attributes:
-      label: Detalhe essa nova implementação"
-      description: |
-        Forneça motivos válidos pelos quais isso deve ser adicionado ao Chakra UI
-
-        Se esse recurso estiver relacionado a um problema que você percebeu, mencione-o como
-        bem.
-    validations:
-      required: true
-  - type: "textarea"
-    id: "additional-information"
-    attributes:
-      label: "Informações adicionais"
-      description: |
-        Use esta seção para fornecer qualquer informação adicional que você possa ter
-        como capturas de tela, notas ou links para ideias.
