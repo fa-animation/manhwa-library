@@ -3,7 +3,7 @@ from fastapi import FastAPI, status
 from fastapi.responses import RedirectResponse
 from fastapi.middleware.cors import CORSMiddleware
 from app.infra.core.config.settings import settings
-from .infra.router import manhwa_router
+from app.infra.router.v1 import manga_router
 from .infra.core.database import connect
 from app.utils import population_database
 
@@ -14,7 +14,9 @@ app = FastAPI(
   contact= {
     "name": settings.api_contact_name,
     "email": settings.api_contact_email
-	}
+	},
+  docs_url="/v1/docs",
+  redoc_url="/v1/redoc",
 )
 
 app.add_middleware(
@@ -33,4 +35,4 @@ def redirect_docs() -> dict:
   """Redirect to /docs"""
   return RedirectResponse(url='/docs')
 
-app.include_router(manhwa_router.router, prefix="/manhwa", tags=["/manhwa"])
+app.include_router(manga_router.router, prefix="/v1")

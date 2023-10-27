@@ -22,5 +22,6 @@ class Manhwa(base_model_schema.ManhwaBase):
           "year_published": "2022",
           "author": "Chugong",
           "artist": "DUBU",
+          "type_book": "manhwa"
       }
     }

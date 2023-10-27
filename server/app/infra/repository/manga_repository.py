@@ -8,9 +8,9 @@ from sqlalchemy.exc import IntegrityError
 from app.infra.models import models
 from app.schemas.schema import *
 
-class ManhwaRepositorio(Repository):
+class MangaRepositorio(Repository):
   
-  def getAll(self, db: Session, skip: int = 0, limit: int = 100) -> List[Manhwa]:
+  def getAll(self, db: Session, skip: int = 0, limit: int = 100, order: str = "id") -> List[Manhwa]:
     """
     #### Recupera todos os registros do banco de dados.
 
@@ -18,11 +18,12 @@ class ManhwaRepositorio(Repository):
       - db (Session): A sessão do banco de dados.
       - skip Optional[int] = 0: O número de registros a serem ignorados.
       - limit Optional[int] = 100: O número máximo de registros a serem recuperados.
+      - order Optional[str] = "id": O campo para ordenar os registros
 
     Retorna:
-      - List[Manhwa]: Uma lista de Manhwa representando os registros recuperados.
+      - List[Manhwa]: retorna uma lista de manga
     """
-    getAllManhwa = db.query(models.ManhwaModel).offset(skip).limit(limit)
+    getAllManhwa = db.query(models.ManhwaModel).order_by(desc(order)).offset(skip).limit(limit)
     return getAllManhwa.all()
   def getLast(self, db: Session) -> List[Manhwa]:
     """
