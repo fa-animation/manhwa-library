@@ -29,6 +29,7 @@ const LastCard = ({ lastHomeManga }: ArrayDataProps) => {
               type_book={data.type_book}
               image={data.image}
               ratting={data.ratting}
+              slug={data.slug}
             />
           ))}
         </ContainerGrid>
