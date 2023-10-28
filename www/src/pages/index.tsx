@@ -30,14 +30,18 @@ export interface ArrayDataProps {
 }
 
 export const getStaticProps: GetStaticProps = async (context: any) => {
-  const { data: lastHomeManga } = await api.get<MangaT>(
-    '/v1/manga/?order_by=created_at&limit=5'
-  )
-  return {
-    props: {
-      lastHomeManga
-    },
-    revalidate: 60000
+  try {
+    const { data: lastHomeManga } = await api.get<MangaT>('/v1/manga/?order_by=created_at&limit=5')
+    return {
+      props: {
+        lastHomeManga
+      },
+      revalidate: 60000
+    }
+  } catch (error) {
+    return {
+      notFound: true
+    }
   }
 }
 
