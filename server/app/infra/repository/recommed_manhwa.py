@@ -22,5 +22,5 @@ class RecommedRepositorio(Repository):
     getAllManhwa = db.query(models.ManhwaModel).order_by(func.random()).first()
     return getAllManhwa
   def getTranding(self, db: Session) -> Manhwa:
-    getAllManhwa = db.query(models.ManhwaModel).where('view_count' > 40000).limit(10)
+    getAllManhwa = db.query(models.ManhwaModel).where(models.ManhwaModel.view_count > 2784).limit(10)
     return getAllManhwa.all()
