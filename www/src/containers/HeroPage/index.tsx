@@ -1,3 +1,4 @@
+import Link from 'next/link' 
 import { Box, Button, chakra, Flex, Image, Stack, Text, useColorModeValue } from '@chakra-ui/react'
 import { BsBookHalf } from 'react-icons/bs'
 import { Typewriter } from 'react-simple-typewriter'
@@ -43,6 +44,8 @@ const HeroPage = () => {
               </Text>
               <Stack w={{ base: '100%', sm: 'auto' }}>
                 <Button
+                  as={Link}
+                  href={'/browse'}
                   leftIcon={<BsBookHalf />}
                   w={'full'}
                   bg={'purple.700'}
