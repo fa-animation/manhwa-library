@@ -12,6 +12,7 @@ class Status(str, Enum):
 
 class Type_book(str, Enum):
   Manhwa = "manhwa"
+  Manhua = "manhua"
   Manga = "manga"
 
 class ManhwaBase(BaseModel):
@@ -19,7 +20,7 @@ class ManhwaBase(BaseModel):
   title: str
   slug: Optional[str] = None
   description: str
-  status_progress: Status
+  status_progress: str
   ratting: float
   image: str
   view_count: Optional[int] = None

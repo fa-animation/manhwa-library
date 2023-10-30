@@ -2,8 +2,7 @@ from fastapi import status, APIRouter, Response, HTTPException, Depends
 
 from slugify import slugify
 from sqlalchemy.orm import Session
-from typing import List
-from uuid import UUID
+
 import random
 #importações locais
 from app.infra.core.database import connect
