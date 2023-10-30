@@ -47,7 +47,8 @@ def get_show_all_manga(order_by: str | None = None, skip: int | None = 0, limit:
 @router.get("/random", 
   status_code=status.HTTP_200_OK, 
   response_model=ManhwaNoList, 
-  summary="Obter as recomendações de manga"
+  summary="Obter as recomendações de manga",
+  tags=["recomendação"]
 )
 def get_show_random_manga(db: Session = Depends(connect.get_db)):
   """
