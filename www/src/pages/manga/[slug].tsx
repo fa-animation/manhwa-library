@@ -2,8 +2,6 @@ import { GetStaticPaths, GetStaticProps } from 'next'
 import Head from 'next/head'
 import {
   Box,
-  CircularProgress,
-  Center,
   Container,
   Heading,
   Image,
@@ -17,21 +15,8 @@ import {
   TabPanel
 } from '@chakra-ui/react'
 import api from '@/api/'
+import { MangaProps } from '@/types'
 
-interface MangaProps {
-  id: string
-  title: string
-  slug: string
-  description: string
-  status_progress: string
-  ratting: number
-  image: string
-  view_count: number
-  year_published: string
-  author: string
-  artist: string
-  type_book: string
-}
 interface MangaAxios {
   data: MangaProps
 }
