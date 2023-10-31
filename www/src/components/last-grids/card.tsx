@@ -66,8 +66,8 @@ export const Card = ({ title, image, ratting, type_book, slug }: MangaProps) => 
         </Box>
         <Stack>
           <Stack spacing="1">
-              <Tooltip hasArrow label={title} bg="gray.300" color="black" w={'fit-content'}>
-            <LinkOverlay as={Link} href={`/manga/${slug}`}>
+            <Tooltip hasArrow label={title} bg="gray.300" color="black" w={'fit-content'}>
+              <LinkOverlay as={Link} href={`/manga/${slug}`}>
                 <Text
                   isTruncated
                   fontWeight="medium"
@@ -75,9 +75,9 @@ export const Card = ({ title, image, ratting, type_book, slug }: MangaProps) => 
                 >
                   {title}
                 </Text>
-              <Rating defaultValue={ratting} />
-            </LinkOverlay>
-              </Tooltip>
+                <Rating defaultValue={ratting} />
+              </LinkOverlay>
+            </Tooltip>
           </Stack>
         </Stack>
       </Stack>
