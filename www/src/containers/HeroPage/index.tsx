@@ -1,4 +1,4 @@
-import Link from 'next/link' 
+import Link from 'next/link'
 import { Box, Button, chakra, Flex, Image, Stack, Text, useColorModeValue } from '@chakra-ui/react'
 import { BsBookHalf } from 'react-icons/bs'
 import { Typewriter } from 'react-simple-typewriter'
