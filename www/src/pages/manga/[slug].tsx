@@ -63,7 +63,7 @@ export default function MangaDetail({ mangaDetails }: MangaData) {
       <Head>
         <title>{`${mangaDetails.title}`}</title>
       </Head>
-      <Container maxW="6xl" >
+      <Container maxW="6xl">
         <SimpleGrid
           columns={{ base: 1, md: 2 }}
           paddingX={{ base: 2, md: 5, xl: 100 }}
@@ -71,28 +71,27 @@ export default function MangaDetail({ mangaDetails }: MangaData) {
           mt={10}
         >
           <Box maxW="20rem">
-          <AspectRatio
-            ratio={4 / 3}
-            _before={{
-              content: '\'\'',
-              display: 'block',
-              height: '0px',
-              paddingBottom: '133.333%'
-            }}
-          >
-            <Image
-              borderRadius={10}
-              src={mangaDetails.image}
-              width={{ base: '90%' }}
-              objectFit={'cover'}
-              alt={mangaDetails.title}
-            />
-          </AspectRatio>
-            
+            <AspectRatio
+              ratio={4 / 3}
+              _before={{
+                content: "''",
+                display: 'block',
+                height: '0px',
+                paddingBottom: '133.333%'
+              }}
+            >
+              <Image
+                borderRadius={10}
+                src={mangaDetails.image}
+                width={{ base: '90%' }}
+                objectFit={'cover'}
+                alt={mangaDetails.title}
+              />
+            </AspectRatio>
           </Box>
           <Box marginY={{ base: 5 }}>
             <Heading as="h1">{mangaDetails.title}</Heading>
-            
+
             <Box>
               <Heading as={'h3'} fontSize={'4xl'} marginY={2}>
                 Overview
@@ -104,13 +103,15 @@ export default function MangaDetail({ mangaDetails }: MangaData) {
                 </TabList>
                 <TabPanels>
                   <TabPanel>
-                    <Text fontSize="md" textAlign={'justify'}>{mangaDetails.description}</Text>
+                    <Text fontSize="md" textAlign={'justify'}>
+                      {mangaDetails.description}
+                    </Text>
                   </TabPanel>
                   <TabPanel>
                     <Text fontSize="md">{mangaDetails.author}</Text>
                     <Box>
-              <Text fontSize="md">{mangaDetails.status_progress}</Text>
-            </Box>
+                      <Text fontSize="md">{mangaDetails.status_progress}</Text>
+                    </Box>
                   </TabPanel>
                 </TabPanels>
               </Tabs>

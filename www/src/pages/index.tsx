@@ -5,11 +5,11 @@ import CardGrid from '@/components/card-grid'
 import Explore from '@/components/explore'
 import LastCard from '@/components/last-grids'
 import api from '@/api/'
-import { ArrayDataProps, MangaT } from '@/types'
+import { ArrayDataProps } from '@/types'
 
 export const getStaticProps: GetStaticProps = async (context: any) => {
   try {
-    const { data: lastHomeManga } = await api.get<MangaT>('/v1/manga/?order_by=created_at&limit=5')
+    const { data: lastHomeManga } = await api.get('/v1/manga/?order_by=created_at&limit=5')
     return {
       props: {
         lastHomeManga
