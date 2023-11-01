@@ -3,7 +3,7 @@ from fastapi import FastAPI, status
 from fastapi.responses import RedirectResponse
 from fastapi.middleware.cors import CORSMiddleware
 from app.infra.core.config.settings import settings
-from app.infra.router.v1 import manga_router, trending_manga
+from app.infra.router.v1 import manga_router, trending_manga,search_router
 from .infra.core.database import connect
 from app.utils import population_database
 
@@ -36,4 +36,5 @@ def redirect_docs() -> dict:
   return RedirectResponse(url='/docs')
 
 app.include_router(manga_router.router, prefix="/v1")
+app.include_router(search_router.router, prefix="/v1")
 app.include_router(trending_manga.router, prefix="/v1")
