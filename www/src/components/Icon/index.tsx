@@ -6,7 +6,7 @@ type PropsIcon = IconProps & {
 }
 
 const IconCard = ({ icon, ...rest }: PropsIcon) => (
-  <Icon rounded="full" w="12" h="12" bg="purple.500" as={icon} {...rest} />
+  <Icon rounded="full" p={1} w={45} h={45} bg="purple.500" as={icon} {...rest} />
 )
 
 export default IconCard

@@ -6,7 +6,7 @@ import { useSwiper } from 'swiper/react'
 export const SwiperNavButtons = () => {
   const swiper = useSwiper()
   return (
-    <Box m="1.5rem" display="flex" justifyContent={'center'}>
+    <Box m="1.5rem" display={'flex'} justifyContent={'center'}>
       <IconButton
         rounded="lg"
         icon={<FaChevronLeft />}

@@ -14,6 +14,7 @@ import {
 import Link from 'next/link'
 import * as React from 'react'
 import { Rating } from './rating'
+import { TypeBook } from './type-book'
 
 interface MangaProps {
   title: string
@@ -22,9 +23,6 @@ interface MangaProps {
   type_book: string
   slug: string
 }
-//import { FavouriteButton } from './FavouriteButton'
-//import { PriceTag } from './PriceTag'
-//import { Product } from './_data'
 
 export const Card = ({ title, image, ratting, type_book, slug }: MangaProps) => {
   return (
@@ -34,7 +32,7 @@ export const Card = ({ title, image, ratting, type_book, slug }: MangaProps) => 
           <AspectRatio
             ratio={4 / 3}
             _before={{
-              content: "''",
+              content: '\'\'',
               display: 'block',
               height: '0px',
               paddingBottom: '133.333%'
@@ -47,22 +45,10 @@ export const Card = ({ title, image, ratting, type_book, slug }: MangaProps) => 
               cursor="pointer"
               fallback={<Skeleton />}
               borderRadius={useBreakpointValue({ base: 'md', md: 'xl' })}
+              _groupHover={{ opacity: 0.3 }}
             />
           </AspectRatio>
-          <Text
-            position="absolute"
-            top="4"
-            right="4"
-            bg={'purple.700'}
-            p={2}
-            rounded={'base'}
-            fontWeight={'bold'}
-            fontSize={'10px'}
-            cursor={'pointer'}
-            color={'white'}
-          >
-            {type_book}
-          </Text>
+          <TypeBook type={type_book} />
         </Box>
         <Stack>
           <Stack spacing="1">
