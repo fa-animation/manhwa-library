@@ -3,13 +3,14 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
 import React, { CSSProperties } from 'react'
 import { MangaProps } from '@/types'
-import PosterCard from './PosterCard'
+// import PosterCard from './PosterCard'
 import { sliderSettings } from './config'
-import { SwiperNavButtons } from './SwiperNavButtons'
+import { SwiperNavButtons } from './swiper-nav-buttons'
+import { Card } from '../card-manga/index'
 
 interface SwipperSliderProps {
   section: MangaProps[]
-  title: string
+  title?: string
 }
 
 const slideStyles: CSSProperties = {
@@ -21,15 +22,21 @@ export const SwipperSlider = ({ section, title }: SwipperSliderProps) => {
   return (
     <Box px={5}>
       <Box w="100%" h="100%">
-        <Heading size="md" my="1.5rem">
+        <Heading size="md" my="1.5rem" hidden={!title?.length}>
           {title}
         </Heading>
       </Box>
-      <Swiper {...sliderSettings} style={{ width: '100%', height: '100%' }}>
+      <Swiper {...sliderSettings} spaceBetween={15}>
         <SwiperNavButtons />
         {section?.map((data: MangaProps) => (
           <SwiperSlide key={data.id} style={slideStyles}>
-            <PosterCard slug={data.slug} name={data.title} imageUrl={data.image} />
+            <Card
+              image={data.image}
+              ratting={data.ratting}
+              slug={data.slug}
+              title={data.title}
+              type_book={data.type_book}
+            />
           </SwiperSlide>
         ))}
       </Swiper>
