@@ -1,4 +1,3 @@
-/* eslint-disable */
 import { HStack, Icon, StackProps, useColorModeValue } from '@chakra-ui/react'
 import * as React from 'react'
 import { FaStar } from 'react-icons/fa'
