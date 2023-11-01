@@ -1,7 +1,17 @@
 import type { GetStaticProps } from 'next'
 import Link from 'next/link'
 import Head from 'next/head'
-import { chakra, Flex, Stack, Heading, Text, useBreakpointValue, Button, Image, Container } from '@chakra-ui/react'
+import {
+  chakra,
+  Flex,
+  Stack,
+  Heading,
+  Text,
+  useBreakpointValue,
+  Button,
+  Image,
+  Container
+} from '@chakra-ui/react'
 import api from '@/api'
 import { MangaProps, MangaT } from '@/types'
 import { SwipperSlider } from '@/components/swipper'
@@ -43,7 +53,12 @@ export default function PageBrowse({ topManga, random, lastHomeManga }: BrowsePr
         <title>Manga Library - Browse</title>
       </Head>
       <Container maxW={'6xl'}>
-        <Stack pt={{ base: 27, md: 24 }} minH={'70vh'} direction={{ base: 'column-reverse', md: 'row' }} justifyContent={'space-between'}>
+        <Stack
+          pt={{ base: 27, md: 24 }}
+          minH={'70vh'}
+          direction={{ base: 'column-reverse', md: 'row' }}
+          justifyContent={'space-between'}
+        >
           <Flex align={'center'} justify={'center'}>
             <Stack spacing={6} w={'full'} maxW={'lg'}>
               <Heading
@@ -92,7 +107,13 @@ export default function PageBrowse({ topManga, random, lastHomeManga }: BrowsePr
             </Stack>
           </Flex>
           <Flex align={'center'} justify={'center'}>
-            <Image rounded={'base'} src={random.data.image} alt={random.data.title}  maxW={'350px'} maxH={'500px'}/>
+            <Image
+              rounded={'base'}
+              src={random.data.image}
+              alt={random.data.title}
+              maxW={'350px'}
+              maxH={'500px'}
+            />
           </Flex>
         </Stack>
       </Container>
