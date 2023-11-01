@@ -1,4 +1,3 @@
-from fastapi import HTTPException, status
 # from uuid import UUID
 from typing import List
 from sqlalchemy.orm import Session
@@ -16,6 +15,10 @@ class Repository(ABC):
   @abstractmethod
   def getTranding(self):
     pass
+  @abstractmethod
+  def searchManga(self, name):
+    pass
+  
 
 class RecommedRepositorio(Repository):
   
@@ -26,4 +29,8 @@ class RecommedRepositorio(Repository):
   def getTranding(self, db: Session) -> List[Manhwa]:
     getAllManhwa = db.query(models.ManhwaModel).order_by(desc(models.ManhwaModel.view_count)).limit(10)
 
+    return getAllManhwa.all()
+  
+  def searchManga(self, name: str,db: Session) -> List[Manhwa]:
+    getAllManhwa = db.query(models.ManhwaModel).filter(models.ManhwaModel.title.like(name))
     return getAllManhwa.all()
