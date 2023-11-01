@@ -10,8 +10,10 @@ services:
     container_name: ${CONTAINER_NAME:-manhwa-frontend}
     restart: always
     tty: true
+    volumes:
+      - ./www/.env:/app/.env
     depends_on:
-      - servre
+      - server
     ports:
       - "3000:3000"
 
