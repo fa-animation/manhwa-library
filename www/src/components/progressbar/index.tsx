@@ -1,7 +1,7 @@
 import NextNprogress from 'nextjs-progressbar'
 
-const ProgressBard = () =>{
-  return(
+const ProgressBard = () => {
+  return (
     <NextNprogress
       color="#fb5607"
       startPosition={0.3}

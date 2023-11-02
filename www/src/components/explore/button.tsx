@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 export const Button = () => (
   <ChakraButton
-    as={Link }
+    as={Link}
     href={'/browse'}
     width="100%"
     mt={{ base: '6', md: 0 }}
