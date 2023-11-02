@@ -33,7 +33,7 @@ connect.create_database()
 @app.get("/", status_code=status.HTTP_308_PERMANENT_REDIRECT)
 def redirect_docs() -> dict:
   """Redirect to /docs"""
-  return RedirectResponse(url='/docs')
+  return RedirectResponse(url='v1/docs')
 
 app.include_router(manga_router.router, prefix="/v1")
 app.include_router(search_router.router, prefix="/v1")
