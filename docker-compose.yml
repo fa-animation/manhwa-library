@@ -6,8 +6,8 @@ services:
     # build: 
     #   context: ./dockerfile
     #   dockerfile: www.dockerfile
-    image: manhwa-frontend
-    container_name: ${CONTAINER_NAME:-manhwa-frontend}
+    image: manga-www
+    container_name: ${CONTAINER_NAME:-manga-www}
     restart: always
     tty: true
     volumes:
@@ -15,18 +15,18 @@ services:
     depends_on:
       - server
     ports:
-      - "3000:3000"
+      - 127.0.0.1:3000:3000
 
   server:
     build: ./server
     # build: 
     #   context: ./dockerfile
     #   dockerfile: server.dockerfile
-    image: manhwa-server
-    container_name: ${CONTAINER_NAME:-manhwa-backend}
+    image: manga-api
+    container_name: ${CONTAINER_NAME:-manga-api}
     restart: always
     tty: true
     volumes:
       - ./server/.env:/app/.env
     ports:
-      - "8000:8000"
+      - 127.0.0.1:8000:8000
