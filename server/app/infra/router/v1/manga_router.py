@@ -1,23 +1,16 @@
 from fastapi import status, APIRouter, Response, HTTPException, Depends
-
 from slugify import slugify
 from sqlalchemy.orm import Session
-
 import random
 #importações locais
 from app.infra.core.database import connect
 from app.schemas.schema import Manhwa
 from app.schemas.base.base_model_schema import ShowsSearch, ManhwaNoList
-from app.infra.repository import recommed_manhwa
 from app.infra.repository import manga_repository
 
 manga_repo = manga_repository.MangaRepositorio()
-manhwaRecommend = recommed_manhwa.RecommedRepositorio()
 
-router = APIRouter(
-  prefix="/manga",
-  tags=["manga"],
-)
+router = APIRouter()
 
 @router.get("/", 
   status_code=status.HTTP_200_OK, 
@@ -43,21 +36,6 @@ def get_show_all_manga(order_by: str | None = None, skip: int | None = 0, limit:
   show = manga_repo.getAll(db,skip=skip, limit=limit, order=order_by)
   response = {'data': show, 'pagination': {'total': len(show)}}
   return response
-
-@router.get("/random", 
-  status_code=status.HTTP_200_OK, 
-  response_model=ManhwaNoList, 
-  summary="Obter as recomendações de manga",
-  tags=["recomendação"]
-)
-def get_show_random_manga(db: Session = Depends(connect.get_db)):
-  """
-  Obter as recomendações de manga do banco de dados.
-  """
-  show = manhwaRecommend.getAll(db)
-  response = {"data": show}
-  return response
-
 
 @router.get("/{slug}/detail/", 
   status_code=status.HTTP_200_OK, 

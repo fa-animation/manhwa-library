@@ -1,8 +1,6 @@
 from fastapi import HTTPException, status
-from uuid import UUID
-from typing import List
 from sqlalchemy.orm import Session
-from sqlalchemy import desc, or_
+from sqlalchemy import desc
 from .repository import Repository
 from sqlalchemy.exc import IntegrityError
 from app.infra.models import models
@@ -10,7 +8,7 @@ from app.schemas.schema import *
 
 class MangaRepositorio(Repository):
   
-  def getAll(self, db: Session, skip: int = 0, limit: int = 100, order: str = "id") -> List[Manhwa]:
+  def getAll(self, db: Session, skip: int = 0, limit: int = 100, order: str = "id") -> list[Manhwa]:
     """
     #### Recupera todos os registros do banco de dados.
 
@@ -25,52 +23,39 @@ class MangaRepositorio(Repository):
     """
     getAllManhwa = db.query(models.ManhwaModel).order_by(desc(order)).offset(skip).limit(limit)
     return getAllManhwa.all()
-  def getLast(self, db: Session) -> List[Manhwa]:
-    """
-    #### Recupera todos os registros do banco de dados.
-
-    Argumentos:
-      - db (Session): A sessão do banco de dados.
-
-    Retorna:
-      - List[Manhwa]: Uma lista de Manhwa representando os últimos registros recuperados.
-    """    
-    getLasteManhwa = db.query(models.ManhwaModel).order_by(desc(models.ManhwaModel.created_at))
-    return getLasteManhwa.all()
 
   def getById(self, slug: str, db: Session) -> Manhwa:
     """
-    #### Recupera um objeto `Manhwa` do banco de dados com base no `id` fornecido.
+    #### Recupera um objeto `manga` do banco de dados com base no `slug` fornecido.
 
     Argumentos:
       - db (Session): O objeto de sessão do banco de dados.
 
     Retorna:
-      - Manhwa: O objeto `manhwa` com o `id` correspondente.
+      - manga: O objeto `manga` com o `slug` correspondente.
     """
     return db.query(models.ManhwaModel).where(models.ManhwaModel.slug == slug).first()
   
   def save(self, manhwa: Manhwa, db: Session) -> Manhwa:
     """
-    #### Salva um manhwa no banco de dados.
+    #### Salva um manga no banco de dados.
 
     Argumentos:
-      - Manhwa (Manhwa): Os dados do Manhwa como um dicionário.
+      - manga (manga): Os dados do manga como um dicionário.
       - db (Session): O objeto de sessão do banco de dados.
 
     Retorna:
-      - Manhwa: O objeto Manhwa salvo.
+      - manga: O objeto manga salvo.
 
     Raise:
       - HTTPException: Se houver um erro de integridade durante a operação de salvamento.
     """
-    print(manhwa)
-    manhwa_db = models.ManhwaModel(**manhwa.model_dump())
+    manga_db = models.ManhwaModel(**manhwa.model_dump())
     try:
-      db.add(manhwa_db)
+      db.add(manga_db)
       db.commit()
-      db.refresh(manhwa_db)
-      return manhwa_db
+      db.refresh(manga_db)
+      return manga_db
     except IntegrityError as err:
       db.rollback()
       raise HTTPException(
@@ -83,8 +68,8 @@ class MangaRepositorio(Repository):
     #### Atualize o conteúdo do item com as informações do manhwa determinado.
 
     Argumentos:
-      - item_content (Manhwa): O conteúdo do item a ser atualizado.
-      - Manhwa (Manhwa): O objeto Manhwa contendo as informações atualizadas.
+      - item_content (manga): O conteúdo do item a ser atualizado.
+      - manga (manga): O objeto manga contendo as informações atualizadas.
       - db (Session): O objeto de sessão para operações de banco de dados.
 
     Retorna:
@@ -97,7 +82,6 @@ class MangaRepositorio(Repository):
     # item_content.disponivel = produto.disponivel
     update_query = db.query(models.ManhwaModel).filter(models.ManhwaModel.id == item_content.id)
     update_query.update(manhwa.model_dump(exclude_unset=True))
-    # model_dump(): returns a dictionary of the model's fields and values. See Serialization.
     db.commit()
     return item_content
 

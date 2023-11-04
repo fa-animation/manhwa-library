@@ -4,30 +4,34 @@ from pydantic import BaseModel
 from enum import Enum
 from datetime import datetime
 
-class Status(str, Enum):
-  Ongoing = "Ongoing"
-  Completed = "Completed"
-  Finished = "Finished"
-  Canceled = "Canceled"
+class manga_status(str, Enum):
+  Current = "current"
+  TBA = "tba"
+  finished = "finished"
+  Unreleased = "unreleased"
+  Upcoming = "upcoming"
 
-class Type_book(str, Enum):
+class manga_type(str, Enum):
   Manhwa = "manhwa"
   Manhua = "manhua"
   Manga = "manga"
+  Novel = "novel"
+  Oel = "oel"
+  Oneshot = "oneshot"
 
 class ManhwaBase(BaseModel):
   id: Optional[UUID] = None
   title: str
   slug: Optional[str] = None
   description: str
-  status_progress: str
+  status_progress: manga_status
   ratting: float
   image: str
   view_count: Optional[int] = None
   year_published: str
   author: str
   artist: str
-  type_book: Optional[Type_book]
+  type_book: manga_type
   created_at: Optional[datetime] = None
 
 class Pagination(BaseModel):

@@ -29,7 +29,7 @@ interface BrowseProps {
 export const getStaticProps: GetStaticProps = async () => {
   try {
     const { data: topManga } = await api.get('/v1/trending/manga/')
-    const { data: random } = await api.get('/v1/manga/random')
+    const { data: random } = await api.get('/v1/recommend/random')
     const { data: lastHomeManga } = await api.get('/v1/manga/?order_by=created_at&limit=12')
     return {
       props: {

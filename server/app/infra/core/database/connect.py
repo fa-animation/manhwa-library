@@ -1,4 +1,3 @@
-import logging
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
@@ -19,8 +18,6 @@ def create_database():
 def get_db():
   db = SessionLocal()
   try:
-    logging.info("Create database connection")
     yield db
   finally:
-    logging.info("Database connection closed")
     db.close()
