@@ -71,7 +71,7 @@ export default function Search({ topManga }: SearchProps) {
     setLoading(true)
     clearTimeout(timeOutSearch)
     timeOutSearch = setTimeout(async () => {
-      const { data } = await api.get(`/v1/search/search/?name=${termSearch}`)
+      const { data } = await api.get(`/v1/search/?name=${termSearch}`)
       setResults({ ...data })
       setLoading(false)
     }, 700)
