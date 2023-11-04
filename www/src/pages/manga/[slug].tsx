@@ -73,7 +73,7 @@ export default function MangaDetail({ mangaDetails }: MangaData) {
             <AspectRatio
               ratio={4 / 3}
               _before={{
-                content: "''",
+                content: '\'\'',
                 display: 'block',
                 height: '0px',
                 paddingBottom: '133.333%'

@@ -22,7 +22,7 @@ export const SwipperSlider = ({ section, title }: SwipperSliderProps) => {
   return (
     <Box px={5}>
       <Box w="100%" h="100%">
-        <Heading size="md" my="1.5rem" hidden={!title?.length}>
+        <Heading size="md" mb="1.5rem" hidden={!title?.length}>
           {title}
         </Heading>
       </Box>

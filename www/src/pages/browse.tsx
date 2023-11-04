@@ -15,6 +15,7 @@ import {
 import api from '@/api'
 import { MangaProps, MangaT } from '@/types'
 import { SwipperSlider } from '@/components/swipper'
+import { ContinueReading } from '@/components/swipper/continue-reading'
 
 interface Random {
   data: MangaProps
@@ -28,9 +29,11 @@ interface BrowseProps {
 
 export const getStaticProps: GetStaticProps = async () => {
   try {
-    const { data: topManga } = await api.get('/v1/trending/manga/')
-    const { data: random } = await api.get('/v1/recommend/random')
-    const { data: lastHomeManga } = await api.get('/v1/manga/?order_by=created_at&limit=12')
+    const [{ data: topManga }, { data: random }, { data: lastHomeManga }] = await Promise.all([
+      api.get('/v1/trending/manga/'),
+      api.get('/v1/recommend/random'),
+      api.get('/v1/manga/?order_by=created_at&limit=12')
+    ])
     return {
       props: {
         topManga,
@@ -118,6 +121,7 @@ export default function PageBrowse({ topManga, random, lastHomeManga }: BrowsePr
         </Stack>
       </Container>
       <Flex direction={'column'}>
+        <ContinueReading title="Continue reading"/>
         <SwipperSlider title="Top 10 manga" section={topManga?.data} />
         <SwipperSlider title="Latest manga" section={lastHomeManga?.data} />
       </Flex>
