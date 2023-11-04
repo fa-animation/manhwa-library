@@ -5,8 +5,7 @@ class Repository(ABC):
   @abstractmethod
   def getAll(self, skip: int = 0, limit: int = 100, order: str = "id"):
       pass
-  def getLast(self):
-      pass
+ 
   @abstractmethod
   def getById(self, slug: str):
       pass
