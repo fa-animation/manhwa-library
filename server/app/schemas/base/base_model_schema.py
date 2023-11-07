@@ -33,6 +33,7 @@ class ManhwaBase(BaseModel):
   artist: str
   type_book: manga_type
   created_at: Optional[datetime] = None
+  update_at: Optional[datetime] = None
 
 class Pagination(BaseModel):
   total: int
