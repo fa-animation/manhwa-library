@@ -33,7 +33,7 @@ def get_show_all_manga(order_by: str | None = None, skip: int | None = 0, limit:
     - data (`manga`): Os dados salvos no banco de dados.
   """
  
-  show = manga_repo.getAll(db,skip=skip, limit=limit, order=order_by)
+  show = manga_repo.getAll(db, skip=skip, limit=limit, order=order_by)
   response = {'data': show, 'pagination': {'total': len(show)}}
   return response
 
