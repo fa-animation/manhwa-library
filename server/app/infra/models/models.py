@@ -19,6 +19,7 @@ class ManhwaModel(Base):
   author = Column(String)
   artist = Column(String)
   created_at = Column(DateTime(timezone=True), server_default=func.now(args=['utc']))
+  update_at = Column(DateTime(timezone=True), onupdate=func.now(args=['utc']))
 
 class GeneroModel(Base):
   __tablename__ = 'genero'
