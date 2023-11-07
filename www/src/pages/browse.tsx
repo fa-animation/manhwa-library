@@ -31,7 +31,7 @@ export const getStaticProps: GetStaticProps = async () => {
   try {
     const [{ data: topManga }, { data: random }, { data: lastHomeManga }] = await Promise.all([
       api.get('/v1/trending/manga/'),
-      api.get('/v1/recommend/random'),
+      api.get('/v1/recommend/random/&limit=1'),
       api.get('/v1/manga/?order_by=created_at&limit=12')
     ])
     return {

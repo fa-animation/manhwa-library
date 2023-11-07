@@ -21,15 +21,15 @@ import { Card } from '@/components/card-manga'
 import Container from '@/layout/container'
 
 interface SearchProps {
-  topManga: MangaT
+  randomRecommed: MangaT
 }
 
 export const getStaticProps: GetStaticProps = async () => {
   try {
-    const { data: topManga } = await api.get('/v1/trending/manga/')
+    const { data: randomRecommed } = await api.get('/v1/recommend/random/&limit=12')
     return {
       props: {
-        topManga
+        randomRecommed
       },
       revalidate: 60000
     }
@@ -65,7 +65,7 @@ const ContainerGrid = ({ title, children }: GridProps) => (
   </Box>
 )
 
-export default function Search({ topManga }: SearchProps) {
+export default function Search({ randomRecommed }: SearchProps) {
   const [termSearch, setTermSearch] = useState<string | undefined>('')
   const [loading, setLoading] = useState<boolean>(false)
   const [results, setResults] = useState<MangaT>()
@@ -168,8 +168,8 @@ export default function Search({ topManga }: SearchProps) {
           )}
         </>
       ) : (
-        <ContainerGrid title="Top manga">
-          {topManga.data.map((data: MangaProps) => (
+        <ContainerGrid title="Also read">
+          {randomRecommed.data.map((data: MangaProps) => (
             <Card
               key={data.id}
               image={data.image}
