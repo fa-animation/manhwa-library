@@ -11,6 +11,8 @@ class Repository(ABC):
   @abstractmethod
   def get_all(self, skip: int = 0, limit: int = 100):
     pass
+  def get_one(self):
+    pass
   @abstractmethod
   def get_tranding(self):
     pass
@@ -21,9 +23,13 @@ class Repository(ABC):
 
 class RecommedRepositorio(Repository):
   
+  def get_one(self, db: Session) -> Manhwa:
+    return db.query(models.ManhwaModel).order_by(func.random()).first()
+  
   def get_all(self, db: Session, skip: int = 0, limit: int = 100) -> list[Manhwa]:
     get_random = db.query(models.ManhwaModel).order_by(func.random()).offset(skip).limit(limit)
     return get_random.all()
+  
   def get_tranding(self, db: Session) -> list[Manhwa]:
     tranding = db.query(models.ManhwaModel).order_by(desc(models.ManhwaModel.view_count)).limit(10)
 

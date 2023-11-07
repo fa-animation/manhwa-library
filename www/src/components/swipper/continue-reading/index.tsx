@@ -5,16 +5,13 @@ import React, { CSSProperties } from 'react'
 import { sliderSettings } from '../config'
 import { SwiperNavButtons } from '../swiper-nav-buttons'
 import { ReadingCard } from './reading-card'
+import { MangaProps } from '@/types'
 // import PosterCard from './PosterCard'
-
-export interface readingProps {
-  title: string
-  image: string
-  progress_reading: number
-}
 
 interface SwipperSliderProps {
   title?: string
+  section: MangaProps[]
+  progress_reading: number
 }
 
 const slideStyles: CSSProperties = {
@@ -22,26 +19,9 @@ const slideStyles: CSSProperties = {
   maxWidth: '200px'
 }
 
-const dataReading: readingProps[] = [
-  {
-    title: 'A Returner\'s Magic Should Be Special',
-    image: 'https://media.kitsu.io/manga/poster_images/54173/original.jpg',
-    progress_reading: Math.round(Math.random() * 100)
-  },
-  {
-    title: 'Martial Peak',
-    image: 'https://media.kitsu.io/manga/poster_images/40987/original.jpg',
-    progress_reading: Math.round(Math.random() * 100)
-  },
-  {
-    title: 'Solo Max-Level Newbie',
-    image: 'https://media.kitsu.io/manga/60628/poster_image/d6f918e6b16b3e88330c1829e786be85.jpg',
-    progress_reading: Math.round(Math.random() * 100)
-  }
-]
-export const ContinueReading = ({ title }: SwipperSliderProps) => {
+export const ContinueReading = ({ title, section, progress_reading }: SwipperSliderProps) => {
   return (
-    <Box px={5}>
+    <Box px={5} hidden={!section.length}>
       <Box w="100%" h="100%">
         <Heading size="md" my="1.5rem" hidden={!title?.length}>
           {title}
@@ -49,12 +29,12 @@ export const ContinueReading = ({ title }: SwipperSliderProps) => {
       </Box>
       <Swiper {...sliderSettings} spaceBetween={15}>
         <SwiperNavButtons />
-        {dataReading?.map((data: readingProps, i) => (
+        {section?.map((data: MangaProps, i) => (
           <SwiperSlide key={i} style={slideStyles}>
             <ReadingCard
               title={data.title}
               image={data.image}
-              progress_reading={data.progress_reading}
+              progress_reading={progress_reading}
             />
           </SwiperSlide>
         ))}

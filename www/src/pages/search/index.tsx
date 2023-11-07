@@ -26,7 +26,7 @@ interface SearchProps {
 
 export const getStaticProps: GetStaticProps = async () => {
   try {
-    const { data: randomRecommed } = await api.get('/v1/recommend/random/&limit=12')
+    const { data: randomRecommed } = await api.get('/v1/recommend/random?&limit=12')
     return {
       props: {
         randomRecommed
