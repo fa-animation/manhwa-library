@@ -4,19 +4,21 @@ import Head from 'next/head'
 import {
   Box,
   Center,
+  Flex,
   Heading,
   Image,
   Input,
   InputGroup,
   InputLeftElement,
-  SimpleGrid
+  SimpleGrid,
+  Text,
+  chakra
 } from '@chakra-ui/react'
 import { AiOutlineSearch } from 'react-icons/ai'
 import { MangaProps, MangaT } from '@/types'
 import api from '@/api'
 import { Card } from '@/components/card-manga'
 import Container from '@/layout/container'
-import { title } from 'process'
 
 interface SearchProps {
   topManga: MangaT
@@ -107,7 +109,14 @@ export default function Search({ topManga }: SearchProps) {
         </Box>
       </Container>
       {loading ? (
-        <h3>Buscando...</h3>
+        <Flex minH={'50vh'} justify={'center'} align={'center'} textAlign={'center'}>
+          <Image
+            w={250}
+            h={250}
+            alt="banana dance"
+            src="https://i.pinimg.com/originals/f3/0e/21/f30e21da146bd3501555eec943a8898e.gif"
+          />
+        </Flex>
       ) : results ? (
         <>
           {results.data.length ? (
@@ -124,9 +133,38 @@ export default function Search({ topManga }: SearchProps) {
               ))}
             </ContainerGrid>
           ) : (
-            <Box minH={'100vh'} textAlign={'center'}>
-              <strong>Nenhum resultado para {termSearch}</strong>
-            </Box>
+            <Flex minH={'50vh'} justify={'center'} align={'center'}>
+              <Box p={4} textAlign={'center'}>
+                <Center>
+                  <Image
+                    w="full"
+                    rounded="lg"
+                    maxW="600px"
+                    loading="lazy"
+                    src="https://media.tenor.com/XaDOC9Gvu6UAAAAi/ui-shigure-shigure-ui.gif"
+                    alt="Nenhum resultado"
+                  />
+                </Center>
+                <Text fontSize={{ base: '2xl', sm: '3xl' }}>
+                  Nenhum resultado para{' '}
+                  &quot;<chakra.span
+                    position={'relative'}
+                    _after={{
+                      content: '\'\'',
+                      width: 'full',
+                      height: '10%',
+                      position: 'absolute',
+                      bottom: 1,
+                      left: 0,
+                      bg: 'orange.400',
+                      zIndex: 1000
+                    }}
+                  >
+                    {termSearch}
+                  </chakra.span>&quot;
+                </Text>
+              </Box>
+            </Flex>
           )}
         </>
       ) : (

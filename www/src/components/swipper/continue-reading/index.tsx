@@ -24,19 +24,19 @@ const slideStyles: CSSProperties = {
 
 const dataReading: readingProps[] = [
   {
-    'title': 'A Returner\'s Magic Should Be Special',
-    'image': 'https://media.kitsu.io/manga/poster_images/54173/original.jpg',
-    'progress_reading': Math.round(Math.random() * 100)
+    title: 'A Returner\'s Magic Should Be Special',
+    image: 'https://media.kitsu.io/manga/poster_images/54173/original.jpg',
+    progress_reading: Math.round(Math.random() * 100)
   },
   {
-    'title': 'Martial Peak',
-    'image': 'https://media.kitsu.io/manga/poster_images/40987/original.jpg',
-    'progress_reading': Math.round(Math.random() * 100)
+    title: 'Martial Peak',
+    image: 'https://media.kitsu.io/manga/poster_images/40987/original.jpg',
+    progress_reading: Math.round(Math.random() * 100)
   },
   {
-    'title': 'Solo Max-Level Newbie',
-    'image': 'https://media.kitsu.io/manga/60628/poster_image/d6f918e6b16b3e88330c1829e786be85.jpg',
-    'progress_reading': Math.round(Math.random() * 100)
+    title: 'Solo Max-Level Newbie',
+    image: 'https://media.kitsu.io/manga/60628/poster_image/d6f918e6b16b3e88330c1829e786be85.jpg',
+    progress_reading: Math.round(Math.random() * 100)
   }
 ]
 export const ContinueReading = ({ title }: SwipperSliderProps) => {
@@ -51,7 +51,11 @@ export const ContinueReading = ({ title }: SwipperSliderProps) => {
         <SwiperNavButtons />
         {dataReading?.map((data: readingProps, i) => (
           <SwiperSlide key={i} style={slideStyles}>
-            <ReadingCard title={data.title} image={data.image} progress_reading={data.progress_reading}/>
+            <ReadingCard
+              title={data.title}
+              image={data.image}
+              progress_reading={data.progress_reading}
+            />
           </SwiperSlide>
         ))}
       </Swiper>

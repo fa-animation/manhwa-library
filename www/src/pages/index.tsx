@@ -8,7 +8,7 @@ import api from '@/api/'
 import { ArrayDataProps } from '@/types'
 import { SwipperSlider } from '@/components/swipper'
 
-export const getStaticProps: GetStaticProps = async (context: any) => {
+export const getStaticProps: GetStaticProps = async () => {
   try {
     const { data: lastHomeManga } = await api.get('/v1/manga/?order_by=created_at&limit=7')
     return {

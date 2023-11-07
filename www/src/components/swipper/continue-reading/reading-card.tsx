@@ -1,16 +1,11 @@
 import {
-  AspectRatio,
   Box,
-  Image,
   LinkBox,
   LinkOverlay,
-  Skeleton,
   Stack,
-  Text,
   Tooltip,
   Progress,
-  useBreakpointValue,
-  useColorModeValue
+  useBreakpointValue
 } from '@chakra-ui/react'
 import Link from 'next/link'
 import * as React from 'react'
@@ -32,8 +27,7 @@ export const ReadingCard = ({ title, image, progress_reading }: readingProps) =>
               backgroundSize: 'cover',
               borderRadius: useBreakpointValue({ base: 'md', md: 'xl' })
             }}
-          >
-           </Box>
+          ></Box>
           {/* <TypeBook type={type_book} /> */}
         </Box>
         <Stack>

@@ -121,7 +121,7 @@ export default function PageBrowse({ topManga, random, lastHomeManga }: BrowsePr
         </Stack>
       </Container>
       <Flex direction={'column'}>
-        <ContinueReading title="Continue reading"/>
+        <ContinueReading title="Continue reading" />
         <SwipperSlider title="Top 10 manga" section={topManga?.data} />
         <SwipperSlider title="Latest manga" section={lastHomeManga?.data} />
       </Flex>
