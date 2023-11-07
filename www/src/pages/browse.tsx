@@ -25,20 +25,24 @@ interface BrowseProps {
   topManga: MangaT
   random: Random
   lastHomeManga: MangaT
+  rand: MangaT
 }
 
+const slug = Math.round(Math.random() * 12) +3
 export const getStaticProps: GetStaticProps = async () => {
   try {
-    const [{ data: topManga }, { data: random }, { data: lastHomeManga }] = await Promise.all([
+    const [{ data: topManga }, { data: random }, { data: lastHomeManga }, { data: rand }] = await Promise.all([
       api.get('/v1/trending/manga/'),
-      api.get('/v1/recommend/random/&limit=1'),
-      api.get('/v1/manga/?order_by=created_at&limit=12')
+      api.get('/v1/recommend/'),
+      api.get('/v1/manga/?order_by=created_at&limit=12'),
+      api.get(`/v1/recommend/random?&limit=${slug}`)
     ])
     return {
       props: {
         topManga,
         random,
-        lastHomeManga
+        lastHomeManga,
+        rand
       },
       revalidate: 60000
     }
@@ -49,7 +53,7 @@ export const getStaticProps: GetStaticProps = async () => {
   }
 }
 
-export default function PageBrowse({ topManga, random, lastHomeManga }: BrowseProps) {
+export default function PageBrowse({ topManga, random, lastHomeManga, rand }: BrowseProps) {
   return (
     <>
       <Head>
@@ -121,7 +125,7 @@ export default function PageBrowse({ topManga, random, lastHomeManga }: BrowsePr
         </Stack>
       </Container>
       <Flex direction={'column'}>
-        <ContinueReading title="Continue reading" />
+        <ContinueReading section={rand?.data} progress_reading={Math.round(Math.random() * 100)} title="Continue reading" />
         <SwipperSlider title="Top 10 manga" section={topManga?.data} />
         <SwipperSlider title="Latest manga" section={lastHomeManga?.data} />
       </Flex>

@@ -9,7 +9,12 @@ import {
 } from '@chakra-ui/react'
 import Link from 'next/link'
 import * as React from 'react'
-import { readingProps } from '.'
+
+interface readingProps {
+  title?: string
+  image: string
+  progress_reading: number
+}
 
 export const ReadingCard = ({ title, image, progress_reading }: readingProps) => {
   return (
