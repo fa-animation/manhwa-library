@@ -36,5 +36,5 @@ class RecommedRepositorio(Repository):
     return tranding.all()
   
   def search_manga(self, name: str,db: Session) -> list[Manhwa]:
-    getAllManhwa = db.query(models.ManhwaModel).filter(models.ManhwaModel.title.like(name)).limit(15)
+    getAllManhwa = db.query(models.ManhwaModel).filter(models.ManhwaModel.title.like(name)).limit(18)
     return getAllManhwa.all()
