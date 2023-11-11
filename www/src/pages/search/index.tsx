@@ -31,7 +31,7 @@ export const getStaticProps: GetStaticProps = async () => {
       props: {
         randomRecommed
       },
-      revalidate: 60000
+      revalidate: 20
     }
   } catch (error) {
     return {

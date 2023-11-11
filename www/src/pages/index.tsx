@@ -15,7 +15,7 @@ export const getStaticProps: GetStaticProps = async () => {
       props: {
         lastHomeManga
       },
-      revalidate: 60000
+      revalidate: 20
     }
   } catch (error) {
     return {

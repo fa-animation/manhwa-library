@@ -47,7 +47,7 @@ export const getStaticProps: GetStaticProps = async (context: any) => {
       props: {
         mangaDetails
       },
-      revalidate: 60000
+      revalidate: 20
     }
   } catch (error) {
     return {

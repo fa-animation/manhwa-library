@@ -44,7 +44,7 @@ export const getStaticProps: GetStaticProps = async () => {
         lastHomeManga,
         rand
       },
-      revalidate: 60000
+      revalidate: 20
     }
   } catch (error) {
     return {
