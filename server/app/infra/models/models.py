@@ -16,10 +16,8 @@ class ManhwaModel(Base):
   image = Column(String)
   view_count = Column(Integer)
   year_published = Column(String)
-  author = Column(String)
-  artist = Column(String)
-  created_at = Column(DateTime(timezone=True), server_default=func.now(args=['utc']))
-  update_at = Column(DateTime(timezone=True), onupdate=func.now(args=['utc']))
+  created_at = Column(DateTime(timezone=True), server_default=func.now('America/Sao_Paulo'))
+  update_at = Column(DateTime(timezone=True), onupdate=func.now('America/Sao_Paulo'))
 
 class GeneroModel(Base):
   __tablename__ = 'genero'
