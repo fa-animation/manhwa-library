@@ -29,8 +29,6 @@ class ManhwaBase(BaseModel):
   image: str
   view_count: Optional[int] = None
   year_published: str
-  author: str
-  artist: str
   type_book: manga_type
   created_at: Optional[datetime] = None
   update_at: Optional[datetime] = None
