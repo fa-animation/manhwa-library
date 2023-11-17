@@ -29,7 +29,7 @@ const HeroPage = () => {
                 <chakra.span
                   position={'relative'}
                   _after={{
-                    content: '\'\'',
+                    content: "''",
                     width: 'full',
                     height: '10%',
                     position: 'absolute',

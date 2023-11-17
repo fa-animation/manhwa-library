@@ -146,11 +146,11 @@ export default function Search({ randomRecommed }: SearchProps) {
                   />
                 </Center>
                 <Text fontSize={{ base: '2xl', sm: '3xl' }}>
-                  Nenhum resultado para{' '}
-                  &quot;<chakra.span
+                  Nenhum resultado para &quot;
+                  <chakra.span
                     position={'relative'}
                     _after={{
-                      content: '\'\'',
+                      content: "''",
                       width: 'full',
                       height: '10%',
                       position: 'absolute',
@@ -161,7 +161,8 @@ export default function Search({ randomRecommed }: SearchProps) {
                     }}
                   >
                     {termSearch}
-                  </chakra.span>&quot;
+                  </chakra.span>
+                  &quot;
                 </Text>
               </Box>
             </Flex>

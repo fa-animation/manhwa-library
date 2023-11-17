@@ -8,8 +8,6 @@ export interface MangaProps {
   image: string
   view_count: number
   year_published: string
-  author: string
-  artist: string
   type_book: string
 }
 
