@@ -1,32 +1,18 @@
-Manhwa Library
+# Manhwa Library - frontend
 
-**1. Executando a Aplicação:**
+Manhwa Library é um aplicativo web para gerenciar uma biblioteca de manga.
 
-Abrindo o terminal, você pode executar o seguinte comando para entrar no diretório do projeto:
+Dentro da pasta `www` execute esses comandos:
 
-```bash
-  cd epice-next-app
-```
-
-**2 Como instalar as dependências**
-Nesse caso, você pode usar o yarn ou npm para instalar e rodar a aplicação.
+1° Instala as dependências do projeto
 
 ```bash
 yarn
 ```
 
-Mas se for usar o npm, e for mandar uma pullrequest, lembre-se de apagar o aqruivo package-lock.json (por causa da vercel, que vai mandar apagar)
-
-```bash
-npm install
-```
-
-**3. Como rodar o projeto**
+2° Inicia o servidor de desenvolvimento
 
 ```bash
 yarn dev
-```
 
-```bash
-npm run dev
 ```

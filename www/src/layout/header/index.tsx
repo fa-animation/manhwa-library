@@ -9,6 +9,8 @@ import {
 } from '@chakra-ui/react'
 import NextLink from 'next/link'
 import ThemeToggle from './button-toggle'
+import DesktopNav from './desktop-nav'
+import MobileNav from './mobile-nav'
 
 type HeaderProps = {
   children: React.ReactNode
@@ -48,11 +50,11 @@ export default function NavHero() {
           </NextLink>
         </Flex>
         <HStack display="flex" alignItems="center" spacing={1}>
-          {/* <DesktopNav /> */}
+          <DesktopNav />
           <ButtonGroup>
             <ThemeToggle />
           </ButtonGroup>
-          {/* <MobileNav /> */}
+          <MobileNav />
         </HStack>
       </Flex>
     </Header>
