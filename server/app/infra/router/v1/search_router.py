@@ -16,5 +16,5 @@ router = APIRouter()
 def get_search_manga(name: str, db: Session = Depends(connect.get_db)):
   name = f"%{name}%"
   show = manhwaRecommend.search_manga(name, db)
-  response = {"data": show, 'pagination': {'total': len(show)}}
+  response = {"data": show, 'pagination': {'total': len(show), 'count': 1}}
   return response

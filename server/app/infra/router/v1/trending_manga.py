@@ -17,6 +17,6 @@ router = APIRouter()
 )
 def get_trending_manga(db: Session = Depends(connect.get_db)):
   show = manhwaRecommend.get_tranding(db)
-  response = {"data": show, 'pagination': {'total': len(show)}}
+  response = {"data": show, 'pagination': {'total': len(show), 'count': 1}}
   return response
 
