@@ -8,6 +8,10 @@ export interface MangaProps {
   image: string
   view_count: number
   year_published: string
+  chapter?: {
+    title: string;
+    description: string
+  }[]
   type_book: string
 }
 

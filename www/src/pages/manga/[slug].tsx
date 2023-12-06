@@ -13,12 +13,14 @@ import {
   Tab,
   TabPanels,
   TabPanel,
-  Flex
+  Flex,
+  Accordion
 } from '@chakra-ui/react'
 import api from '@/api/'
 import { MangaProps, MangaT } from '@/types'
 import { Text as ChakraText } from '@/components/choose-Library/typography'
 import { SwipperSlider } from '@/components/swipper'
+import { Chapter } from '@/components/chapter'
 
 interface MangaAxios {
   data: MangaProps
@@ -48,7 +50,8 @@ export const getStaticProps: GetStaticProps = async (context: any) => {
       title: data.data.title,
       description: data.data.description,
       image: data.data.image,
-      status_progress: data.data.status_progress
+      status_progress: data.data.status_progress,
+      chapter: data.data.chapter
     }
     return {
       props: {
@@ -65,6 +68,8 @@ export const getStaticProps: GetStaticProps = async (context: any) => {
 }
 
 export default function MangaDetail({ mangaDetails, rand }: MangaData) {
+  console.log(mangaDetails.chapter)
+
   return (
     <>
       <Head>
@@ -81,7 +86,7 @@ export default function MangaDetail({ mangaDetails, rand }: MangaData) {
             <AspectRatio
               ratio={4 / 3}
               _before={{
-                content: "''",
+                content: '\'\'',
                 display: 'block',
                 height: '0px',
                 paddingBottom: '133.333%'
@@ -125,7 +130,7 @@ export default function MangaDetail({ mangaDetails, rand }: MangaData) {
           </Box>
         </SimpleGrid>
 
-        <Flex flexDirection="column" width="full" align="center" justifyContent="center">
+        {/* <Flex flexDirection="column" width="full" align="center" justifyContent="center">
           <Flex
             justify={'center'}
             width="94%"
@@ -144,8 +149,37 @@ export default function MangaDetail({ mangaDetails, rand }: MangaData) {
             />
           </Flex>
           <ChakraText mt={10}>Under construction</ChakraText>
-        </Flex>
-
+        </Flex> */}
+        {mangaDetails.chapter?.length ? (
+          <>
+            <Accordion allowToggle p={10}>
+              {mangaDetails.chapter.map((data, i) => (
+                <Chapter key={i} description={data.description} title={data.title} />
+              ))}
+            </Accordion>
+          </>
+        ) : (
+          <Flex flexDirection="column" width="full" align="center" justifyContent="center">
+            <Flex
+              justify={'center'}
+              width="94%"
+              maxWidth="900px"
+              borderRadius="sm"
+              textAlign="center"
+              mt={10}
+            >
+              <Image
+                w="full"
+                rounded="lg"
+                maxW="300px"
+                loading="lazy"
+                src="https://epice-app.vercel.app/img/svg/undraw_warning_cyit.svg"
+                alt="s"
+              />
+            </Flex>
+            <ChakraText mt={10}>No Content</ChakraText>
+          </Flex>
+        )}
         <SwipperSlider title="Explore more" section={rand?.data} />
       </Container>
     </>

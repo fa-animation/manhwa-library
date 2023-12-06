@@ -19,7 +19,7 @@ def get_show_random_manga(skip: int | None = 0, limit: int | None = 12,db: Sessi
   Obter as recomendações de manga do banco de dados.
   """
   show = manhwaRecommend.get_all(db, skip=skip, limit=limit)
-  response = {'data': show, 'pagination': {'total': len(show)}}
+  response = {'data': show, 'pagination': {'total': len(show), 'count': 1}}
   return response
 
 @router.get("/", 

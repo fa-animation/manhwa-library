@@ -4,11 +4,8 @@ class Repository(ABC):
 
   @abstractmethod
   def getAll(self, skip: int = 0, limit: int = 100, order: str = "id"):
-      pass
- 
-  @abstractmethod
-  def getById(self, slug: str):
-      pass
+      pass 
+
   @abstractmethod
   def save(self, model):
       pass
