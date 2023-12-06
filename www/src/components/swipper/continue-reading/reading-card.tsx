@@ -24,7 +24,7 @@ export const ReadingCard = ({ title, image, progress_reading }: readingProps) =>
           <Box
             flex={0}
             _before={{
-              content: '\'\'',
+              content: "''",
               display: 'block',
               height: '10rem',
               backgroundImage: `linear-gradient(180deg, rgba(23,25,35,0.09007352941176472) 0%, rgba(23,25,35,0.3449754901960784) 35%, rgba(23,25,35,0.6867121848739496) 100%), url(${image}) `,

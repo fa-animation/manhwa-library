@@ -8,6 +8,10 @@ from app.schemas.schema import *
 
 class MangaRepositorio(Repository):
   
+  def count(self, db: Session):
+    count = db.query(models.ManhwaModel).count()
+    return count
+
   def getAll(self, db: Session, skip: int = 0, limit: int = 100, order: str = "id") -> list[Manhwa]:
     """
     #### Recupera todos os registros do banco de dados.

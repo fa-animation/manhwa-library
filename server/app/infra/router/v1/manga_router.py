@@ -17,7 +17,7 @@ router = APIRouter()
   response_model=ShowsSearch, 
   summary="Obter todos os manga"
 )
-def get_show_all_manga(order_by: str | None = None, skip: int | None = 0, limit: int = 12, db: Session = Depends(connect.get_db)):
+def get_show_all_manga(response: Response, order_by: str | None = None, skip: int | None = 0, limit: int = 12, db: Session = Depends(connect.get_db)):
   """
   ## Obtenha todos os programas de manga.
 
@@ -32,10 +32,12 @@ def get_show_all_manga(order_by: str | None = None, skip: int | None = 0, limit:
   Retorna:
     - data (`manga`): Os dados salvos no banco de dados.
   """
- 
+  total = manga_repo.count(db)
   show = manga_repo.getAll(db, skip=skip, limit=limit, order=order_by)
-  response = {'data': show, 'pagination': {'total': len(show)}}
-  return response
+  
+  responses = {'data': show, 'pagination': {'total': total, 'count': len(show)}}
+  response.headers['x-total'] = str(total)
+  return responses
 
 @router.get("/{slug}/detail/", 
   status_code=status.HTTP_200_OK, 

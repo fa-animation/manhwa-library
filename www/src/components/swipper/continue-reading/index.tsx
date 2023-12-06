@@ -2,10 +2,10 @@ import { Box, Heading } from '@chakra-ui/react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
 import React, { CSSProperties } from 'react'
+import { MangaProps } from '@/types'
 import { sliderSettings } from '../config'
 import { SwiperNavButtons } from '../swiper-nav-buttons'
 import { ReadingCard } from './reading-card'
-import { MangaProps } from '@/types'
 // import PosterCard from './PosterCard'
 
 interface SwipperSliderProps {
