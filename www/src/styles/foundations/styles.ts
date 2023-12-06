@@ -9,11 +9,11 @@ export const styles: DeepPartial<Theme['styles']> = {
       background: 'black'
     },
     'body::-webkit-scrollbar-thumb': {
-      background: '#4FD1C5',
+      background: '#4f5053e8',
       borderRadius: '3px'
     },
     'body::-webkit-scrollbar-thumb:hover': {
-      background: '#4FD1C5'
+      background: '#4f5053e8'
     }
   }
 }

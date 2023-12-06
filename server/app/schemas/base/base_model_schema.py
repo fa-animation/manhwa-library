@@ -19,6 +19,26 @@ class manga_type(str, Enum):
   Oel = "oel"
   Oneshot = "oneshot"
 
+class ListManhwa(BaseModel):
+  pass
+
+class CreateChapter(BaseModel):
+  id: Optional[int] = None
+  title: str
+  description: str
+  image: str
+  manhwa_id: Optional[UUID] = None #<---peraí blz link: https://congenial-parakeet-wjgqw7v99x53ggqx-8000.app.github.dev/
+  class Config:
+    from_attributes = True
+
+class ListChapter(BaseModel):
+  id: Optional[int]
+  title: str
+  description: str
+  image: str
+  class Config:
+    from_attributes = True
+
 class ManhwaBase(BaseModel):
   id: Optional[UUID] = None
   title: str
@@ -30,11 +50,13 @@ class ManhwaBase(BaseModel):
   view_count: Optional[int] = None
   year_published: str
   type_book: manga_type
+  chapter: list[ListChapter] = []
   created_at: Optional[datetime] = None
   update_at: Optional[datetime] = None
 
 class Pagination(BaseModel):
-  total: int
+  total: Optional[int]
+  count: Optional[int]
 
 class ShowsSearch(BaseModel):
   pagination: Pagination
@@ -55,6 +77,9 @@ class ShowsSearch(BaseModel):
           "type_book": "manhwa"
       }
     }
+
+class ChapterListData(BaseModel):
+  data: CreateChapter
 
 class ManhwaNoList(BaseModel):
   data: ManhwaBase
